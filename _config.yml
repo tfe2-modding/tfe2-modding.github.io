@@ -2,5 +2,5 @@ remote_theme: just-the-docs/just-the-docs
 title: TFE2 Modding
 color_scheme: dark
 aux_links:
-  "Playground":
-    - "//dt-is-not-available.github.io/tfe2-modding/playground"
+  "Official Modding Guide":
+    - "https://florianvanstrien.nl/TheFinalEarth2/modding.php"
