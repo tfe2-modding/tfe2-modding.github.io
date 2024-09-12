@@ -7,7 +7,7 @@ function makeTOC(title, files) {
 	if (files.length == 0) {
 		return "Nothing in this directory"
 	} else {
-		return files.map(e=>`- [${e.name.replace(/\.md$/, "")}](${e.name.replace(/\.md$/, ".html")})`).join("\n")
+		return files.map(e=>`- [${e.name.replace(/\.md$/, "")}](${encodeURI(e.name.replace(/\.md$/, ".html"))}/)`).join("\n")
 	}
 }
 
@@ -50,7 +50,7 @@ function write(struct, to="./out/") {
 				fs.mkdirSync(to+k)
 				stack.push({
 					label: k.replace(/\.html$/,""),
-					href: to.replace(/^\.\/out/,"")+k,
+					href: to.replace(/^\.\/out/,"")+k+"/",
 				})
 				recursiveWrite(v, to+k+"/")
 				stack.pop()
@@ -72,6 +72,7 @@ function write(struct, to="./out/") {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://florianvanstrien.nl/TheFinalEarth2/modding-style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+		<style> summary {user-select: none;} </style>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
 	</head>
@@ -112,7 +113,7 @@ redo()
 
 http.createServer(function (request, response) {
 
-	var filePath = './out/' + request.url
+	var filePath = './out/' + decodeURI(request.url)
 
 	var extname = path.extname(filePath)
 	var contentType = 'text/html'
@@ -146,13 +147,13 @@ http.createServer(function (request, response) {
 							response.writeHead(200, { 'Content-Type': contentType })
 							response.end(content || "404 "+filePath, 'utf-8')
 						})
-					} else tryRead(filePath+".html")
+					} else tryRead(filePath+".html", true)
 				} else {
 					if (error.code == "EISDIR") {
 						tryRead(filePath+"/index.html")
 					} else {
 						response.writeHead(500)
-						response.end('Sorry, check with the site admin for error: '+error.code+' ..\n')
+						response.end('Sorry, check with the site admin for error: '+error.code+' ..\n'+filePath)
 						response.end()
 					}
 				}
