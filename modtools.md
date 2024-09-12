@@ -8,4 +8,4 @@ ModTools is the official helper object for creating mods. It is built-in to the 
 
 For now, most info on ModTools has been copied directly from the official guide, but more info will be added soon to expand upon it. Much of the subpages of this section will be rewritten and modified eventually.
 
-Helper functions are part of the ModTools object. Currently, the following helper functions are available. A ? denotes that a function argument is optional.
+Helper functions are part of the ModTools object. Currently a list of helper functions are available on the official [modding documentation](https://florianvanstrien.nl/TheFinalEarth2/modding.php#helpers)
