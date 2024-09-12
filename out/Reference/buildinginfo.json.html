@@ -18,11 +18,11 @@
 		<main>
 			<p><a href="/">Home</a> / <a href="/Reference/">Reference</a></p>
 <h1><code>buildinginfo.json</code></h1>
-<p>The <code>buildinginfo.json</code> file controls what buildings are registered in the game. The structure of this file contains an array of building objects in JSON format. Building objects must have the following keys (keys surrounded with square brackets are optional):</p>
+<p>The <code>buildinginfo.json</code> file controls what buildings are registered in the game. The structure of this file contains an array of building objects in JSON format. Building objects must have the following keys:</p>
 <ul>
-<li><p><code>className</code> - The name of the building class created using <a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php#makeBuilding">ModTools.makeBuilding</a>.</p>
+<li><p><code>className</code> (string) - The name of the building class created using <a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php#makeBuilding">ModTools.makeBuilding</a>.</p>
 </li>
-<li><p><code>specialInfo</code> - An array of strings that specify conditions and properties for buildings.<details><summary>Expand for all special info strings</summary></p>
+<li><p><code>specialInfo</code> (array of strings) - An array of strings that specify conditions and properties for buildings.<details><summary>Expand for all special info strings</summary></p>
 <ul>
 <li><code>&quot;rooftop&quot;</code> - This building cannot have buildings placed on top of it.</li>
 <li><code>&quot;premium&quot;</code> - This building is not available in demo or free versions of the game (unused in Steam version).</li>
@@ -45,22 +45,23 @@
 </ul>
 </details>
 
+<p>Additionally, the following keys are optional:</p>
 <ul>
-<li><code>[name]</code> - The in-game display name for the building. If not provided, the game will auto fill it with the translation key for that building (generally <code>!!! missing text !!!</code> for custom buildings).</li>
-<li><code>[description]</code> - The in-game description of the building. If not provided, the game will auto fill it with the translation key for that building.</li>
-<li><code>[category]</code> - The name of the category the building should be placed in. If not provided, the building is not present in the build menu.</li>
-<li><code>[unlockedByDefault]</code> - Sets whether or not the building should be automatically unlocked on most saves. This does not apply to scenarios that override unlocks such as A New Beginning. Defaults to false.</li>
-<li><code>[residents]</code> - The number of citizens that should be able to live in this building. Defaults to 0.</li>
-<li><code>[jobs]</code> - The number of citizens that should be able to live in this building. Defaults to 0.</li>
-<li><code>[quality]</code> - The quality of the building, only used when the building has reesidents. Defaults to NaN.</li>
-<li><code>[showUnlockHint]</code> - The hint to show when the building isn&#39;t unlocked, but is visible in the category with a lock icon. When not provided, no hint is displayed.</li>
-<li><code>[buttonBack]</code> - The sprite to show in the background of the building button in the build menu. Defaults to the part of the building texture that the background is stored on. Typically used in buildings like parks.</li>
-<li><code>[notUnlockedWithAll]</code> - Disables the building from being unlocked automatically in freeplay when &quot;Most Unlocks&quot; is selected.</li>
-<li><code>[onBuildSprite]</code> - The sprite to use instead of the building on the overlay when the building is selected. If not provided, just uses the building&#39;s sprite.</li>
-<li><code>[teleporterOperatingCost]</code> - The daily operating cost of using the building&#39;s teleporter. Used in buildings that have teleporters built in, as well as the actual Teleporter building. Defaults to 0.</li>
-<li><code>[tooltipBottomIconInfo]</code> - An array of objects that determine icons and text used in the tooltip. Defaults to an empty array. Typically used in buildings that receive boosts or give boosts to other buildings, like the Lab or Graphene Factory. Each sub object must have the following keys:<ul>
-<li><code>texture</code> - The name of the texture to use for the icon.</li>
-<li><code>text</code> - The text to display next to the icon.</li>
+<li><code>name</code> (string) - The in-game display name for the building. If not provided, the game will auto fill it with the translation key for that building (generally <code>!!! missing text !!!</code> for custom buildings).</li>
+<li><code>description</code> (string) - The in-game description of the building. If not provided, the game will auto fill it with the translation key for that building.</li>
+<li><code>category</code> (string) - The name of the category the building should be placed in. If not provided, the building is not present in the build menu.</li>
+<li><code>unlockedByDefault</code> (boolean) - Sets whether or not the building should be automatically unlocked on most saves. This does not apply to scenarios that override unlocks such as A New Beginning. Defaults to false.</li>
+<li><code>residents</code> (number) - The number of citizens that should be able to live in this building. Defaults to 0.</li>
+<li><code>jobs</code> (number) - The number of citizens that should be able to live in this building. Defaults to 0.</li>
+<li><code>quality</code> (number) - The quality of the building, only used when the building has reesidents. Defaults to NaN.</li>
+<li><code>showUnlockHint</code> (string) - The hint to show when the building isn&#39;t unlocked, but is visible in the category with a lock icon. When not provided, no hint is displayed.</li>
+<li><code>buttonBack</code> (string) - The sprite to show in the background of the building button in the build menu. Defaults to the part of the building texture that the background is stored on. Typically used in buildings like parks.</li>
+<li><code>notUnlockedWithAll</code> (boolean) - Disables the building from being unlocked automatically in freeplay when &quot;Most Unlocks&quot; is selected.</li>
+<li><code>onBuildSprite</code> (string) - The sprite to use instead of the building on the overlay when the building is selected. If not provided, just uses the building&#39;s sprite.</li>
+<li><code>teleporterOperatingCost</code> (number) - The daily operating cost of using the building&#39;s teleporter. Used in buildings that have teleporters built in, as well as the actual Teleporter building. Defaults to 0.</li>
+<li><code>tooltipBottomIconInfo</code> (array) - An array of objects that determine icons and text used in the tooltip. Defaults to an empty array. Typically used in buildings that receive boosts or give boosts to other buildings, like the Lab or Graphene Factory. Each sub object must have the following keys:<ul>
+<li><code>texture</code> (string) - The name of the texture to use for the icon.</li>
+<li><code>text</code> (string) - The text to display next to the icon.</li>
 </ul>
 </li>
 </ul>

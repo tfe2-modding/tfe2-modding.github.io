@@ -1,9 +1,9 @@
 # `buildinginfo.json`
 
-The `buildinginfo.json` file controls what buildings are registered in the game. The structure of this file contains an array of building objects in JSON format. Building objects must have the following keys (keys surrounded with square brackets are optional):
+The `buildinginfo.json` file controls what buildings are registered in the game. The structure of this file contains an array of building objects in JSON format. Building objects must have the following keys:
 
-- `className` - The name of the building class created using [ModTools.makeBuilding](https://florianvanstrien.nl/TheFinalEarth2/modding.php#makeBuilding).
-- `specialInfo` - An array of strings that specify conditions and properties for buildings.<details><summary>Expand for all special info strings</summary>
+- `className` (string) - The name of the building class created using [ModTools.makeBuilding](https://florianvanstrien.nl/TheFinalEarth2/modding.php#makeBuilding).
+- `specialInfo` (array of strings) - An array of strings that specify conditions and properties for buildings.<details><summary>Expand for all special info strings</summary>
 
 	- `"rooftop"` - This building cannot have buildings placed on top of it.
 	- `"premium"` - This building is not available in demo or free versions of the game (unused in Steam version).
@@ -24,21 +24,23 @@ The `buildinginfo.json` file controls what buildings are registered in the game.
 
 </details>
 
-- `[name]` - The in-game display name for the building. If not provided, the game will auto fill it with the translation key for that building (generally `!!! missing text !!!` for custom buildings).
-- `[description]` - The in-game description of the building. If not provided, the game will auto fill it with the translation key for that building.
-- `[category]` - The name of the category the building should be placed in. If not provided, the building is not present in the build menu.
-- `[unlockedByDefault]` - Sets whether or not the building should be automatically unlocked on most saves. This does not apply to scenarios that override unlocks such as A New Beginning. Defaults to false.
-- `[residents]` - The number of citizens that should be able to live in this building. Defaults to 0.
-- `[jobs]` - The number of citizens that should be able to live in this building. Defaults to 0.
-- `[quality]` - The quality of the building, only used when the building has reesidents. Defaults to NaN.
-- `[showUnlockHint]` - The hint to show when the building isn't unlocked, but is visible in the category with a lock icon. When not provided, no hint is displayed.
-- `[buttonBack]` - The sprite to show in the background of the building button in the build menu. Defaults to the part of the building texture that the background is stored on. Typically used in buildings like parks.
-- `[notUnlockedWithAll]` - Disables the building from being unlocked automatically in freeplay when "Most Unlocks" is selected.
-- `[onBuildSprite]` - The sprite to use instead of the building on the overlay when the building is selected. If not provided, just uses the building's sprite.
-- `[teleporterOperatingCost]` - The daily operating cost of using the building's teleporter. Used in buildings that have teleporters built in, as well as the actual Teleporter building. Defaults to 0.
-- `[tooltipBottomIconInfo]` - An array of objects that determine icons and text used in the tooltip. Defaults to an empty array. Typically used in buildings that receive boosts or give boosts to other buildings, like the Lab or Graphene Factory. Each sub object must have the following keys:
-	- `texture` - The name of the texture to use for the icon.
-	- `text` - The text to display next to the icon.
+Additionally, the following keys are optional:
+
+- `name` (string) - The in-game display name for the building. If not provided, the game will auto fill it with the translation key for that building (generally `!!! missing text !!!` for custom buildings).
+- `description` (string) - The in-game description of the building. If not provided, the game will auto fill it with the translation key for that building.
+- `category` (string) - The name of the category the building should be placed in. If not provided, the building is not present in the build menu.
+- `unlockedByDefault` (boolean) - Sets whether or not the building should be automatically unlocked on most saves. This does not apply to scenarios that override unlocks such as A New Beginning. Defaults to false.
+- `residents` (number) - The number of citizens that should be able to live in this building. Defaults to 0.
+- `jobs` (number) - The number of citizens that should be able to live in this building. Defaults to 0.
+- `quality` (number) - The quality of the building, only used when the building has reesidents. Defaults to NaN.
+- `showUnlockHint` (string) - The hint to show when the building isn't unlocked, but is visible in the category with a lock icon. When not provided, no hint is displayed.
+- `buttonBack` (string) - The sprite to show in the background of the building button in the build menu. Defaults to the part of the building texture that the background is stored on. Typically used in buildings like parks.
+- `notUnlockedWithAll` (boolean) - Disables the building from being unlocked automatically in freeplay when "Most Unlocks" is selected.
+- `onBuildSprite` (string) - The sprite to use instead of the building on the overlay when the building is selected. If not provided, just uses the building's sprite.
+- `teleporterOperatingCost` (number) - The daily operating cost of using the building's teleporter. Used in buildings that have teleporters built in, as well as the actual Teleporter building. Defaults to 0.
+- `tooltipBottomIconInfo` (array) - An array of objects that determine icons and text used in the tooltip. Defaults to an empty array. Typically used in buildings that receive boosts or give boosts to other buildings, like the Lab or Graphene Factory. Each sub object must have the following keys:
+	- `texture` (string) - The name of the texture to use for the icon.
+	- `text` (string) - The text to display next to the icon.
 
 `buildinginfo.json` can contain any number of buildings in it. Specifying a `className` that already exists will overwrite the properties of that building.
 

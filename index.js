@@ -7,7 +7,13 @@ function makeTOC(title, files) {
 	if (files.length == 0) {
 		return "Nothing in this directory"
 	} else {
-		return files.map(e=>`- [${e.name.replace(/\.md$/, "")}](${encodeURI(e.name.replace(/\.md$/, ".html"))}/)`).join("\n")
+		return files.map(e=>{
+			if (e.isDirectory()) {
+				return `- [${e.name}](${encodeURI(e.name)}/)`
+			} else {
+				return `- [${e.name.replace(/\.md$/, "")}](${encodeURI(e.name.replace(/\.md$/, ".html"))})`
+			}
+		}).join("\n")
 	}
 }
 
