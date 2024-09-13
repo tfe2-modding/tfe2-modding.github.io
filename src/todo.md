@@ -1,0 +1,18 @@
+- Get a good chunk of raw documentation on all the data-driven JSON files into the website.
+- Create a reference page where pages from the [Index](Index/) are organized by category.
+- Make a few tutorials that can walk someone through the process of making a mod. Ideas include:
+	- Setting up the mod folder
+	- Custom decorations
+	- Custom resources
+	- Custom buildings
+	- Custom world resources
+	- Custom upgrades
+	- Custom categories
+	- Custom complex buildings
+	- Custom UI elements
+	- Custom scenario
+	- Custom scenario goals
+	- Custom randomly generated scenario
+- Lastly after all that is done, if I'm still interested in this project, make a few tools
+	- Generators for JSON files (such as buildinginfo.json, custom scenarios, etc)
+	- Sprite viewer and packer for PIXI spritesheets

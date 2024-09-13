@@ -87,7 +87,7 @@ Additionally, the following keys for scenarios are optional, but need more docum
 	- `image` (number) - image index if its a sprite sheet
 	- `x` (number) - xpos
 	- `y` (number) - ypos
-	- `velocity` (number) - number that makes it move, idk what scale its on
+	- `velocity` (number) - number that makes it orbit around the center of the sky, idk what scale its on
 - `name` (string) - name of scenario? idk what its used for
 - `viewYMobi` (number) - my guess is `viewYFromBottom` mobile override
 - `isFreePlay` (boolean) - is it free play mode, no idea how this influences the free play window
