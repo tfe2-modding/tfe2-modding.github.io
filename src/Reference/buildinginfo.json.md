@@ -42,6 +42,15 @@ Additionally, the following keys are optional:
 	- `texture` (string) - The name of the texture to use for the icon.
 	- `text` (string) - The text to display next to the icon.
 
+Lastly, a building object can have keys in it to specify how much it costs. These keys correspond to the ids of the materials used to purchase/build it, so modded materials work as keys. If unspecified, they default to 0. The built in ones are as follows:
+- `food`
+- `wood`
+- `stone`
+- `knowledge`
+- `machineParts`
+- `refinedMetal`
+- `computerChips`
+
 `buildinginfo.json` can contain any number of buildings in it. Specifying a `className` that already exists will overwrite the properties of that building.
 
 Here's an example of a possible `buildinginfo.json`:
