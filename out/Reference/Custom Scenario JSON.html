@@ -107,26 +107,72 @@
 </ul>
 <p>Additionally, the following keys for scenarios are optional, but need more documentation on what they do:</p>
 <ul>
-<li><code>lockPermanents</code></li>
-<li><code>viewStartX</code></li>
-<li><code>useInviteCitizens</code></li>
-<li><code>backgroundSprites</code><ul>
-<li><code>sprite</code></li>
-<li><code>width</code></li>
-<li><code>image</code></li>
-<li><code>x</code></li>
-<li><code>y</code></li>
-<li><code>velocity</code></li>
+<li><p><code>lockPermanents</code> (array of strings) - list of building classes that are locked on start</p>
+</li>
+<li><p><code>viewStartX</code> (number) - x pos camera starts at</p>
+</li>
+<li><p><code>useInviteCitizens</code> (boolean) - can you invite citizens or not</p>
+</li>
+<li><p><code>backgroundSprites</code> (list of objects) - planets. not restricted to just that tho, sprite can be anything</p>
+<ul>
+<li><code>sprite</code> (string) - sprite name</li>
+<li><code>width</code> (number) - width of sprite</li>
+<li><code>image</code> (number) - image index if its a sprite sheet</li>
+<li><code>x</code> (number) - xpos</li>
+<li><code>y</code> (number) - ypos</li>
+<li><code>velocity</code> (number) - number that makes it move, idk what scale its on</li>
 </ul>
 </li>
-<li><code>name</code></li>
-<li><code>viewYMobi</code></li>
-<li><code>isFreePlay</code></li>
-<li><code>generatorScripts</code></li>
-<li><code>extraResourcesDisabled</code></li>
-<li><code>mobileViewStartX</code></li>
-<li><code>lockAllPermanents</code></li>
-<li><code>speedUpStartNights</code></li>
+<li><p><code>name</code> (string) - name of scenario? idk what its used for</p>
+</li>
+<li><p><code>viewYMobi</code> (number) - my guess is <code>viewYFromBottom</code> mobile override</p>
+</li>
+<li><p><code>isFreePlay</code> (boolean) - is it free play mode, no idea how this influences the free play window</p>
+</li>
+<li><p><code>generatorScripts</code> (array of objects) - giant object that controls completely random island generation.</p>
+  <details><summary>heres the type object i generated</summary>
+
+<pre><code class="language-json">&quot;?generatorScripts[]&quot;: {
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;args&quot;: {
+        &quot;numberOfWorldsMin&quot;: &quot;number&quot;,
+        &quot;numberOfWorldsMax&quot;: &quot;number&quot;,
+        &quot;minX&quot;: &quot;number&quot;,
+        &quot;minY&quot;: &quot;number&quot;,
+        &quot;maxX&quot;: &quot;number&quot;,
+        &quot;maxY&quot;: &quot;number&quot;,
+        &quot;minWidth&quot;: &quot;number&quot;,
+        &quot;maxWidth&quot;: &quot;number&quot;,
+        &quot;minHeight&quot;: &quot;number&quot;,
+        &quot;maxHeight&quot;: &quot;number&quot;,
+        &quot;heightVariation&quot;: &quot;number&quot;,
+        &quot;initialBuildings[]&quot;: {
+            &quot;className&quot;: &quot;string&quot;,
+            &quot;numberMin&quot;: &quot;number&quot;,
+            &quot;numberMax&quot;: &quot;number&quot;
+        },
+        &quot;initialWorldResources[]&quot;: {
+            &quot;className&quot;: &quot;string&quot;,
+            &quot;numberMin&quot;: &quot;number&quot;,
+            &quot;numberMax&quot;: &quot;number&quot;
+        },
+        &quot;spreadBuildingsEvenlyBetweenWorlds&quot;: &quot;boolean&quot;,
+        &quot;spreadWorldResourcesEvenlyBetweenWorlds&quot;: &quot;boolean&quot;,
+        &quot;rememberWorldSpreadBetweenBuildingsAndWorldResources&quot;: &quot;boolean&quot;,
+        &quot;avoidGeneratingOverfullWorlds&quot;: &quot;boolean&quot;
+    }
+}
+</code></pre>
+  </details>
+</li>
+<li><p><code>extraResourcesDisabled</code> (boolean) - no clue</p>
+</li>
+<li><p><code>mobileViewStartX</code> (number) - <code>viewStartX</code> override for mobile</p>
+</li>
+<li><p><code>lockAllPermanents</code> (boolean) - does the thing from scenario 1 where it hides every category</p>
+</li>
+<li><p><code>speedUpStartNights</code> (boolean) - makes the nights at the start of the game faster, also used in scenario 1</p>
+</li>
 </ul>
 <p>Here is an example scenario taken from the Free Play Mini World scenario:</p>
 <pre><code class="language-json">{

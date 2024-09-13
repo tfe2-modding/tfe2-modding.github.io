@@ -78,24 +78,62 @@ A custom scenario is a JSON file with a name corresponding with the link in `sto
 
 Additionally, the following keys for scenarios are optional, but need more documentation on what they do:
 
-- `lockPermanents`
-- `viewStartX`
-- `useInviteCitizens`
-- `backgroundSprites`
-	- `sprite`
-	- `width`
-	- `image`
-	- `x`
-	- `y`
-	- `velocity`
-- `name`
-- `viewYMobi`
-- `isFreePlay`
-- `generatorScripts`
-- `extraResourcesDisabled`
-- `mobileViewStartX`
-- `lockAllPermanents`
-- `speedUpStartNights`
+- `lockPermanents` (array of strings) - list of building classes that are locked on start
+- `viewStartX` (number) - x pos camera starts at
+- `useInviteCitizens` (boolean) - can you invite citizens or not
+- `backgroundSprites` (list of objects) - planets. not restricted to just that tho, sprite can be anything
+	- `sprite` (string) - sprite name
+	- `width` (number) - width of sprite
+	- `image` (number) - image index if its a sprite sheet
+	- `x` (number) - xpos
+	- `y` (number) - ypos
+	- `velocity` (number) - number that makes it move, idk what scale its on
+- `name` (string) - name of scenario? idk what its used for
+- `viewYMobi` (number) - my guess is `viewYFromBottom` mobile override
+- `isFreePlay` (boolean) - is it free play mode, no idea how this influences the free play window
+- `generatorScripts` (array of objects) - giant object that controls completely random island generation.
+
+	<details><summary>heres the type object i generated</summary>
+
+	```json
+	"?generatorScripts[]": {
+		"name": "string",
+		"args": {
+			"numberOfWorldsMin": "number",
+			"numberOfWorldsMax": "number",
+			"minX": "number",
+			"minY": "number",
+			"maxX": "number",
+			"maxY": "number",
+			"minWidth": "number",
+			"maxWidth": "number",
+			"minHeight": "number",
+			"maxHeight": "number",
+			"heightVariation": "number",
+			"initialBuildings[]": {
+				"className": "string",
+				"numberMin": "number",
+				"numberMax": "number"
+			},
+			"initialWorldResources[]": {
+				"className": "string",
+				"numberMin": "number",
+				"numberMax": "number"
+			},
+			"spreadBuildingsEvenlyBetweenWorlds": "boolean",
+			"spreadWorldResourcesEvenlyBetweenWorlds": "boolean",
+			"rememberWorldSpreadBetweenBuildingsAndWorldResources": "boolean",
+			"avoidGeneratingOverfullWorlds": "boolean"
+		}
+	}
+	```
+
+	</details>
+
+- `extraResourcesDisabled` (boolean) - no clue
+- `mobileViewStartX` (number) - `viewStartX` override for mobile
+- `lockAllPermanents` (boolean) - does the thing from scenario 1 where it hides every category
+- `speedUpStartNights` (boolean) - makes the nights at the start of the game faster, also used in scenario 1
 
 Here is an example scenario taken from the Free Play Mini World scenario:
 
