@@ -1,4 +1,33 @@
 - Get a good chunk of raw documentation on all the data-driven JSON files into the website.
+	- `bridgesInfo.json`
+	- `buildableWorldResourcesInfo.json`
+	- `buildingCategoriesInfo.json`
+	- ~~`buildinginfo.json`~~
+	- `buildingUpgradesInfo.json`
+	- `cityUpgradesInfo.json`
+	- `decorationsInfo.json`
+	- `policiesInfo.json`
+	- ~~`stories.json`~~
+	- `Custom Scenario JSON`
+- Document some undocumented behavior on certain ModTools functions.
+	- `makeBuilding` (document custom fields)
+	- `makeBuildingUpgrade` (document custom fields)
+- Document extra important ingame variables
+	- `MaterialsHelper`
+	- `Resources`
+	- `common_Localize`
+- Copy over the rest of the normal docs to complete the index
+	- `buildingAddEntertainmentProperties`
+	- `addBuildBasedUnlock`
+	- `addStatBasedUnlock`
+	- `addMaterial`
+	- `produce`
+	- `consume`
+	- `onCityUpdate`
+	- `onModsLoaded`
+	- `onLoadStart`
+	- `addSaveData`
+	- `addSaveDataEarly`
 - Create a reference page where pages from the [Index](Index/) are organized by category.
 - Make a few tutorials that can walk someone through the process of making a mod. Ideas include:
 	- Setting up the mod folder
