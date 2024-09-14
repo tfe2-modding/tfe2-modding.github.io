@@ -78,22 +78,22 @@ A custom scenario is a JSON file with a name corresponding with the link in `sto
 
 Additionally, the following keys for scenarios are optional, but need more documentation on what they do:
 
-- `lockPermanents` (array of strings) - list of building classes that are locked on start
-- `viewStartX` (number) - x pos camera starts at
-- `useInviteCitizens` (boolean) - can you invite citizens or not
-- `backgroundSprites` (list of objects) - planets. not restricted to just that tho, sprite can be anything
-	- `sprite` (string) - sprite name
-	- `width` (number) - width of sprite
-	- `image` (number) - image index if its a sprite sheet
-	- `x` (number) - xpos
-	- `y` (number) - ypos
-	- `velocity` (number) - number that makes it orbit around the center of the sky, idk what scale its on
-- `name` (string) - name of scenario? idk what its used for
-- `viewYMobi` (number) - my guess is `viewYFromBottom` mobile override
-- `isFreePlay` (boolean) - is it free play mode, no idea how this influences the free play window
-- `generatorScripts` (array of objects) - giant object that controls completely random island generation.
+- `lockPermanents` (array of strings) - A list of `className`s that correspond with buildings that are forcibly locked when the scenario starts. Defaults to an empty array.
+- `viewStartX` (number) - The X position that the camera view starts at. Defaults to 0.
+- `useInviteCitizens` (boolean) - If set to false, the invite citizens button is missing from the build UI.
+- `backgroundSprites` (list of objects) - A list of sprites to place in the background. Typically used for planets.
+	- `sprite` (string) - The name of the sprite to use for the planet.
+	- `width` (number) - The width of an individual frame on the sprite.
+	- `image` (number) - The frame index to use in the sprite.
+	- `x` (number) - The X position in pixels in the sky to place the planet.
+	- `y` (number) - The Y position in pixels in the sky to place the planet.
+	- `velocity` (number) - The speed at which the planet should orbit around the center of the sky.
+- `name` (string) - Seemingly unused. 
+- `viewYMobi` (number) - Mobile override for `viewYFromBottom`
+- `isFreePlay` (boolean) - If enabled, lets you toggle unlimited resources from the advanced settings menu.
+- `generatorScripts` (array of objects) - An array of world generators, which can generate completely random islands.
 
-	<details><summary>heres the type object i generated</summary>
+	<details><summary>Heres some rough type definitions until further documentation can be provided.</summary>
 
 	```json
 	"?generatorScripts[]": {

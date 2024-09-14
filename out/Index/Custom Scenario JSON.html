@@ -107,30 +107,30 @@
 </ul>
 <p>Additionally, the following keys for scenarios are optional, but need more documentation on what they do:</p>
 <ul>
-<li><p><code>lockPermanents</code> (array of strings) - list of building classes that are locked on start</p>
+<li><p><code>lockPermanents</code> (array of strings) - A list of <code>className</code>s that correspond with buildings that are forcibly locked when the scenario starts. Defaults to an empty array.</p>
 </li>
-<li><p><code>viewStartX</code> (number) - x pos camera starts at</p>
+<li><p><code>viewStartX</code> (number) - The X position that the camera view starts at. Defaults to 0.</p>
 </li>
-<li><p><code>useInviteCitizens</code> (boolean) - can you invite citizens or not</p>
+<li><p><code>useInviteCitizens</code> (boolean) - If set to false, the invite citizens button is missing from the build UI.</p>
 </li>
-<li><p><code>backgroundSprites</code> (list of objects) - planets. not restricted to just that tho, sprite can be anything</p>
+<li><p><code>backgroundSprites</code> (list of objects) - A list of sprites to place in the background. Typically used for planets.</p>
 <ul>
-<li><code>sprite</code> (string) - sprite name</li>
-<li><code>width</code> (number) - width of sprite</li>
-<li><code>image</code> (number) - image index if its a sprite sheet</li>
-<li><code>x</code> (number) - xpos</li>
-<li><code>y</code> (number) - ypos</li>
-<li><code>velocity</code> (number) - number that makes it orbit around the center of the sky, idk what scale its on</li>
+<li><code>sprite</code> (string) - The name of the sprite to use for the planet.</li>
+<li><code>width</code> (number) - The width of an individual frame on the sprite.</li>
+<li><code>image</code> (number) - The frame index to use in the sprite.</li>
+<li><code>x</code> (number) - The X position in pixels in the sky to place the planet.</li>
+<li><code>y</code> (number) - The Y position in pixels in the sky to place the planet.</li>
+<li><code>velocity</code> (number) - The speed at which the planet should orbit around the center of the sky.</li>
 </ul>
 </li>
-<li><p><code>name</code> (string) - name of scenario? idk what its used for</p>
+<li><p><code>name</code> (string) - Seemingly unused. </p>
 </li>
-<li><p><code>viewYMobi</code> (number) - my guess is <code>viewYFromBottom</code> mobile override</p>
+<li><p><code>viewYMobi</code> (number) - Mobile override for <code>viewYFromBottom</code></p>
 </li>
-<li><p><code>isFreePlay</code> (boolean) - is it free play mode, no idea how this influences the free play window</p>
+<li><p><code>isFreePlay</code> (boolean) - If enabled, lets you toggle unlimited resources from the advanced settings menu.</p>
 </li>
-<li><p><code>generatorScripts</code> (array of objects) - giant object that controls completely random island generation.</p>
-  <details><summary>heres the type object i generated</summary>
+<li><p><code>generatorScripts</code> (array of objects) - An array of world generators, which can generate completely random islands.</p>
+  <details><summary>Heres some rough type definitions until further documentation can be provided.</summary>
 
 <pre><code class="language-json">&quot;?generatorScripts[]&quot;: {
     &quot;name&quot;: &quot;string&quot;,
