@@ -1,7 +1,5 @@
 name: 'TFE2 Modding Pages Builder'
 description: 'very specific usage'
-inputs:
-outputs:
 runs:
   using: 'node20'
   main: 'index.js'
