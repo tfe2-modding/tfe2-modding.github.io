@@ -2544,7 +2544,7 @@ function makeTOC(title, files) {
 }
 
 function build(from="./src/", toc="Home", struct={}) {
-	from = path.resolve(from)
+	from = path.resolve(from) + "/"
 	const files = fs.readdirSync(from, {
 		withFileTypes: true
 	})
