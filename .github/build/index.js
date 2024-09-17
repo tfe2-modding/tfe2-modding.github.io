@@ -2531,9 +2531,7 @@ const path = require('path')
 
 // hang for a sec, wait for checkout to happen
 
-const now = Date.now()
-
-while (Date.now() - 1000 < now) {}
+console.log(fs.readFileSync("./index.md", "utf8"))
 
 function makeTOC(title, files) {
 	if (files.length == 0) {
