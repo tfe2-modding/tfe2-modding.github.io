@@ -44,9 +44,9 @@ function build(from="./", toc="Home", struct={}) {
 				return ".html"
 			})
 			if (isMD) {
-				struct[fn] = marked.parse(fs.readFileSync(from+file.name+"/", "utf8"))
+				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8"))
 			} else {
-				struct[fn] = fs.readFileSync(from+file.name+"/", "utf8")
+				struct[fn] = fs.readFileSync(from+file.name, "utf8")
 			}
 		}
 	}
