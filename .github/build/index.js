@@ -2527,7 +2527,13 @@ exports.walkTokens = walkTokens;
 ///////////////////////////////////////// END OF MARKED SOURCE
 
 const fs = require("fs")
-var path = require('path')
+const path = require('path')
+
+// hang for a sec, wait for checkout to happen
+
+const now = Date.now()
+
+while (Date.now() - 1000 < now) {}
 
 function makeTOC(title, files) {
 	if (files.length == 0) {

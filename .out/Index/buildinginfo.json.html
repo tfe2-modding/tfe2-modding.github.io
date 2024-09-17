@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Final Earth 2 - Unofficial Modding Guide</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400" rel="stylesheet" type="text/css">
+		<meta name="description" content="Unofficial modding guide for The Final Earth 2.">
+		<meta name="author" content="DT makes games">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://florianvanstrien.nl/TheFinalEarth2/modding-style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+		<style> summary {user-select: none;} p, li {font-size: unset !important;} main > p, main > * > li {font-size: 1.1 em !important;} </style>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+	<body>
+		<main>
+			<p><a href="/">Home</a> / <a href="/Index/">Index</a></p>
+<h1><code>buildinginfo.json</code></h1>
+<p>The <code>buildinginfo.json</code> file controls what buildings are registered in the game. The structure of this file contains an array of building objects in JSON format. Building objects must have the following keys:</p>
+<ul>
+<li><p><code>className</code> (string) - The name of the building class created using <a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php#makeBuilding">ModTools.makeBuilding</a>.</p>
+</li>
+<li><p><code>specialInfo</code> (array of strings) - An array of strings that specify conditions and properties for buildings.<details><summary>Expand for all special info strings</summary></p>
+<ul>
+<li><code>&quot;rooftop&quot;</code> - This building cannot have buildings placed on top of it.</li>
+<li><code>&quot;premium&quot;</code> - This building is not available in demo or free versions of the game (unused in Steam version).</li>
+<li><code>&quot;unique&quot;</code> - There can only be one of these buildings placed at a time.</li>
+<li><code>&quot;halloween&quot;</code> - This building is a halloween building. This changes the tooltip to say &quot;Halloween&quot; with an icon.</li>
+<li><code>&quot;limited&quot;</code> - Makes this building a limited building. If this is present, you must also have a <code>&quot;limitedToCitizens:N&quot;</code> string present or the game will crash.</li>
+<li><code>&quot;limitedToCitizens:N&quot;</code> - Specifies how many citizens must exist per building to be able to build another. Replace <code>N</code> with the desired number. For example, <code>&quot;limitedToCitizens:1000&quot;</code> would limit placing this building to only having one for every 1000 citizens.</li>
+<li><code>&quot;disableCopy&quot;</code> - Disables being able to hold shift + click to copy the building.</li>
+<li><code>&quot;buildOnGround&quot;</code> - This building must be built on the ground.</li>
+<li><code>&quot;disableInsertReplaceOrBuildOnTop&quot;</code> - This building cannot have a building inserted directly below it or placed directly on top of it.</li>
+<li><code>&quot;notUniqueIfGalacticLibrary&quot;</code> - If unique, this building can be built twice if the Galactic Library has been built.</li>
+<li><code>&quot;cityTop&quot;</code> - This building cannot have anything placed anywhere above it. Used in the rocket.</li>
+<li><code>&quot;as_multi_decor&quot;</code> - Replaces the standard build button with multiple copies of this building with different sprites in the build menu. Used with the painted blocks, requires additional code to function correctly.</li>
+<li><code>&quot;as_multi_decor_anycolor&quot;</code> - Replaces the standard build button with a button to pull up a color wheel, specifying the color of the building. Used with the painted blocks, requires additional code to function correctly.</li>
+<li><code>&quot;has_multi_decor_spec&quot;</code> - Specifies that this building has a multi decor spec. Requires a <code>&quot;multi_decor_spec:L&quot;</code> string and a <code>&quot;as_multi_decor&quot;</code> string.</li>
+<li><code>&quot;multi_decor_spec:L&quot;</code> - Sets the sprites replaced by <code>&quot;as_multi_decor&quot;</code> with specific sprites in the build menu. Replace <code>L</code> with a comma-separated list of sprite names. Used with the decorative windows, requires additional code to function correctly.</li>
+<li><code>&quot;mirrorable&quot;</code> - This building can be mirrored.</li>
+</ul>
+</li>
+</ul>
+</details>
+
+<p>Additionally, the following keys are optional:</p>
+<ul>
+<li><code>name</code> (string) - The in-game display name for the building. If not provided, the game will auto fill it with the translation key for that building (generally <code>!!! missing text !!!</code> for custom buildings).</li>
+<li><code>description</code> (string) - The in-game description of the building. If not provided, the game will auto fill it with the translation key for that building.</li>
+<li><code>category</code> (string) - The name of the category the building should be placed in. If not provided, the building is not present in the build menu.</li>
+<li><code>unlockedByDefault</code> (boolean) - Sets whether or not the building should be automatically unlocked on most saves. This does not apply to scenarios that override unlocks such as A New Beginning. Defaults to false.</li>
+<li><code>residents</code> (number) - The number of citizens that should be able to live in this building. Defaults to 0.</li>
+<li><code>jobs</code> (number) - The number of citizens that should be able to live in this building. Defaults to 0.</li>
+<li><code>quality</code> (number) - The quality of the building, only used when the building has reesidents. Defaults to NaN.</li>
+<li><code>showUnlockHint</code> (string) - The hint to show when the building isn&#39;t unlocked, but is visible in the category with a lock icon. When not provided, no hint is displayed.</li>
+<li><code>buttonBack</code> (string) - The sprite to show in the background of the building button in the build menu. Defaults to the part of the building texture that the background is stored on. Typically used in buildings like parks.</li>
+<li><code>notUnlockedWithAll</code> (boolean) - Disables the building from being unlocked automatically in freeplay when &quot;Most Unlocks&quot; is selected.</li>
+<li><code>onBuildSprite</code> (string) - The sprite to use instead of the building on the overlay when the building is selected. If not provided, just uses the building&#39;s sprite.</li>
+<li><code>teleporterOperatingCost</code> (number) - The daily operating cost of using the building&#39;s teleporter. Used in buildings that have teleporters built in, as well as the actual Teleporter building. Defaults to 0.</li>
+<li><code>tooltipBottomIconInfo</code> (array) - An array of objects that determine icons and text used in the tooltip. Defaults to an empty array. Typically used in buildings that receive boosts or give boosts to other buildings, like the Lab or Graphene Factory. Each sub object must have the following keys:<ul>
+<li><code>texture</code> (string) - The name of the texture to use for the icon.</li>
+<li><code>text</code> (string) - The text to display next to the icon.</li>
+</ul>
+</li>
+</ul>
+<p>Lastly, a building object can have keys in it to specify how much it costs. These keys correspond to the ids of the materials used to purchase/build it, so modded materials work as keys. If unspecified, they default to 0. The built in ones are as follows:</p>
+<ul>
+<li><code>food</code></li>
+<li><code>wood</code></li>
+<li><code>stone</code></li>
+<li><code>knowledge</code></li>
+<li><code>machineParts</code></li>
+<li><code>refinedMetal</code></li>
+<li><code>computerChips</code></li>
+</ul>
+<p><code>buildinginfo.json</code> can contain any number of buildings in it. Specifying a <code>className</code> that already exists will overwrite the properties of that building.</p>
+<p>Here&#39;s an example of a possible <code>buildinginfo.json</code>:</p>
+<pre><code class="language-json">[
+    {
+        &quot;className&quot;: &quot;CorporationOfTheOwl&quot;,
+        &quot;name&quot;: &quot;Corporation of the Owl HQ&quot;,
+        &quot;description&quot;: &quot;They see everything.&quot;,
+        &quot;food&quot;: 50000,
+        &quot;wood&quot;: 50000,
+        &quot;stone&quot;: 0,
+        &quot;machineParts&quot;: 0,
+        &quot;refinedMetal&quot;: 0,
+        &quot;computerChips&quot;: 1250,
+        &quot;knowledge&quot;: 75000,
+        &quot;category&quot;: &quot;Unique Buildings&quot;,
+        &quot;unlockedByDefault&quot;: false,
+        &quot;specialInfo&quot;: [
+            &quot;unique&quot;
+        ],
+        &quot;residents&quot;: 12,
+        &quot;quality&quot;: 100,
+        &quot;jobs&quot;: 12,
+        &quot;showUnlockHint&quot;: &quot;Build The Machine to unlock!&quot;
+    },
+    {
+        &quot;className&quot;: &quot;FunctionalHouse&quot;,
+        &quot;name&quot;: &quot;Functional House&quot;,
+        &quot;description&quot;: &quot;Don&#39;t complain, this house is exactly what you need.&quot;,
+        &quot;food&quot;: 0,
+        &quot;wood&quot;: 0,
+        &quot;stone&quot;: 10,
+        &quot;machineParts&quot;: 0,
+        &quot;knowledge&quot;: 10000,
+        &quot;computerChips&quot;: 1,
+        &quot;category&quot;: &quot;Houses&quot;,
+        &quot;unlockedByDefault&quot;: false,
+        &quot;specialInfo&quot;: [],
+        &quot;residents&quot;: 10,
+        &quot;quality&quot;: 35
+    }
+]
+</code></pre>
+
+<br>
+<p><small><a href="https://github.com/tfe2-modding/tfe2-modding.github.io">GitHub repository</a> • <a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php">Official modding guide</a></small>
+		</main>
+	</body>
+</html>
