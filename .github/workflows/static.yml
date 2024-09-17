@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build
-        uses: ./
+        uses: ./.github/build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
