@@ -43,22 +43,25 @@ main {
     color: #060606;
     padding: 30px;
     background-color: white;
-	height: 100%;
+	margin-bottom: 30px;
 }
 
 sidebar {
-    width: 256px;
+    width: 306px;
     color: #060606;
     padding: 30px;
     background-color: white;
-	height: 100%;
 	display: none;
-	padding-right: 20px;
 	margin-right: 10px;
+	position: fixed;
+	max-height: 90%;
+	overflow-y: auto;
+	box-sizing: border-box;
 }
 
 sidebar ul {
 	list-style: none;
+	padding-left: 20px;
 }
 
 sidebar > ul {
