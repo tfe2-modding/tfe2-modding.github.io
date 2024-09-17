@@ -16,7 +16,9 @@ function makeTOC(title, files) {
 	}
 }
 
-function build(from="./", toc="Home", struct={}) {
+function build(links={
+	Home: "index.html"
+}, from="./", toc="Home", struct={}) {
 	const files = fs.readdirSync(from, {
 		withFileTypes: true,
 	})
@@ -35,7 +37,7 @@ function build(from="./", toc="Home", struct={}) {
 		const file = files[i]
 		if (file.isDirectory()) {
 			const dir = struct[file.name] = {}
-			build(from+file.name+"/", file.name, dir)
+			build(links[file.name] = {}, from+file.name+"/", file.name, dir)
 		} else {
 			let isMD = false
 			let fn = file.name.replace(/\.md$/, function(m) {
@@ -43,6 +45,7 @@ function build(from="./", toc="Home", struct={}) {
 				return ".html"
 			})
 			if (isMD) {
+				links[file.name] = fn
 				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8"))
 			} else {
 				struct[fn] = fs.readFileSync(from+file.name, "utf8")
@@ -52,7 +55,19 @@ function build(from="./", toc="Home", struct={}) {
 	return struct
 }
 
-function write(struct, to="./.out/") {
+function makeSidebar(links, from="/") {
+	return `<ul>${Object.entries(links).map(([key, value])=>{
+		if (typeof value == "object") {
+			return `<li><a href="${from+key+"/"}">${key}</a>\n${makeSidebar(value, from+key+"/")}\n</li>`
+		} else {
+			if (key == "index.md" || key == "404.md") {
+				return ""
+			} else return `<li><a href="${from+value}">${key.replace(/\.md$/,"")}</a></li>`
+		}
+	}).join("\n")}</ul>`
+}
+
+function write(struct, links, to="./.out/") {
 	let stack = [{
 		label: "Home",
 		href: "/",
@@ -73,6 +88,7 @@ function write(struct, to="./.out/") {
 					let navpath = stack.map((e, i) => {
 						return '<a href="'+e.href+'">'+e.label+"</a>"
 					}).join(" / ")
+					let sidebar = makeSidebar(links)
 					content = `<!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -83,18 +99,20 @@ function write(struct, to="./.out/") {
 		<meta name="description" content="Unofficial modding guide for The Final Earth 2.">
 		<meta name="author" content="DT makes games">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://florianvanstrien.nl/TheFinalEarth2/modding-style.css" rel="stylesheet" type="text/css">
+		<link href="/style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
-		<style> summary {user-select: none;} p, li {font-size: unset !important;} main > p, main > * > li {font-size: 1.1 em !important;} </style>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
 	</head>
 	<body>
+		<sidebar>
+${sidebar}
+		</sidebar>
 		<main>
 			<p>${navpath}</p>
 ${v}
-<br>
-<p><small><a href="https://github.com/tfe2-modding/tfe2-modding.github.io">GitHub repository</a> • <a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php">Official modding guide</a></small>
+		<br>
+		<p><small><a href="https://github.com/tfe2-modding/tfe2-modding.github.io">GitHub repository</a> • <a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php">Official modding guide</a></small></p>
 		</main>
 	</body>
 </html>`

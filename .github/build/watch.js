@@ -11,8 +11,11 @@ function redo() {
 		console.log("Something changed, rebuilding...")
 		fs.rmSync("./.out/", { recursive: true, force: true })
 		fs.mkdirSync("./.out/")
-		const struct = build()
-		write(struct)
+		const links = {
+			Home: "index.html"
+		}
+		const struct = build(links)
+		write(struct, links)
 		console.log("Done!")
 	}, 10)
 }

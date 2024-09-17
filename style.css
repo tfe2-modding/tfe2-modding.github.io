@@ -1,0 +1,113 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+	background-color: white;
+	width: 100%;
+	max-width: 1224px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+html {
+	width: 100%;
+}
+
+code, command {
+    font-family: "Source Code Pro", monospace;
+}
+
+summary {
+	user-select: none;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-top: 0px;
+}
+
+h2 {
+    font-size: 1.2em;
+    padding-top: 5px;
+}
+
+h3 {
+    font-size: 1.15em;
+}
+
+main {
+    width: 848px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #060606;
+    padding: 30px;
+    background-color: white;
+	height: 100%;
+}
+
+sidebar {
+    width: 256px;
+    color: #060606;
+    padding: 30px;
+    background-color: white;
+	height: 100%;
+	display: none;
+	padding-right: 20px;
+	margin-right: 10px;
+}
+
+sidebar ul {
+	list-style: none;
+}
+
+sidebar > ul {
+	padding-left: 0px;
+}
+
+@media screen and (min-width: 848px) {
+	body {
+        margin-top: 30px;
+		background-color: #d0d0d0;
+	}
+}
+
+@media screen and (min-width: 1224px) {
+	sidebar {
+		display: block;
+		float: left;
+	}
+	main {
+		display: block;
+		float: right;
+	}
+}
+
+.tableOfContents {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tableOfContentsLevel2 {
+    padding-left: 0px;
+}
+
+.tableOfContentsLevel3 {
+    padding-left: 40px;
+}
+
+.tableOfContents > li:before {
+    content: "-";
+    margin-right: 10px;
+}
+
+.tableOfContents a {
+    text-decoration: none;
+}
+
+.tableOfContents a {
+    color: blue;
+}
+
+.tableOfContents a:visited {
+    color: blue;
+}
