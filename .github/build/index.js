@@ -2543,11 +2543,19 @@ function makeTOC(title, files) {
 	}
 }
 
-function build(from="./src/", toc="Home", struct={}) {
+function build(from="./", toc="Home", struct={}) {
 	from = path.resolve(from) + "/"
 	const files = fs.readdirSync(from, {
-		withFileTypes: true
+		withFileTypes: true,
 	})
+	for (let i = 0; i < files.length; i++) {
+		const file = files[i]
+		if (file.name[0] == "." || file.name == "node_modules") {
+			files.splice(i, 1)
+			i--
+			continue
+		}
+	}
 	if (toc) {
 		struct["index.html"] = marked.parse(makeTOC(toc, files))
 	}
@@ -2572,18 +2580,18 @@ function build(from="./src/", toc="Home", struct={}) {
 	return struct
 }
 
-function write(struct, to="./out/") {
+function write(struct, to="./.out/") {
 	let stack = [{
 		label: "Home",
 		href: "/",
 	}]
-	function recursiveWrite(struct, to="./out/") {
+	function recursiveWrite(struct, to="./.out/") {
 		for (const [k, v] of Object.entries(struct)) {
 			if (typeof v == "object") {
 				fs.mkdirSync(to+k)
 				stack.push({
 					label: k.replace(/\.html$/,""),
-					href: to.replace(/^\.\/out/,"")+k+"/",
+					href: to.replace(/^\.\/.out/,"")+k+"/",
 				})
 				recursiveWrite(v, to+k+"/")
 				stack.pop()
@@ -2626,7 +2634,7 @@ ${v}
 	recursiveWrite(struct, to)
 }
 
-fs.rmSync("./out/", { recursive: true, force: true })
-fs.mkdirSync("./out/")
+fs.rmSync("./.out/", { recursive: true, force: true })
+fs.mkdirSync("./.out/")
 const struct = build()
 write(struct)
