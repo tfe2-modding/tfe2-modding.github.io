@@ -13,7 +13,7 @@ A custom scenario is a JSON file with a name corresponding with the link in `sto
 	- `machineParts`
 	- `refinedMetal`
 	- `computerChips`
-- `viewYFromBottom` (number) - The lowest Y position you can scroll and place floating platforms in your city.
+- `viewYFromBottom` (number) - The Y position that the bottom of the camera view starts at.
 - `worlds` (array of world objects) - A list of floating islands for the scenario to create.
 
 	<details>
@@ -130,7 +130,7 @@ Additionally, the following keys for scenarios are optional, but need more docum
 
 	</details>
 
-- `extraResourcesDisabled` (boolean) - no clue
+- `extraResourcesDisabled` (boolean) - if enabled, the "Extra Resources" option is not available in the initial customize screen of a Free Play scenario
 - `mobileViewStartX` (number) - `viewStartX` override for mobile
 - `lockAllPermanents` (boolean) - does the thing from scenario 1 where it hides every category
 - `speedUpStartNights` (boolean) - makes the nights at the start of the game faster, also used in scenario 1
