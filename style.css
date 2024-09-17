@@ -35,7 +35,9 @@ h3 {
 }
 
 main {
-    width: 848px;
+    width: 908px;
+	max-width: 100%;
+	box-sizing: border-box;
     margin-right: auto;
     margin-left: auto;
     color: #060606;
