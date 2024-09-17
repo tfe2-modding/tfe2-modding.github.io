@@ -1,6 +1,6 @@
 const fs = require("fs")
-var http = require('http')
-var path = require('path')
+const http = require('http')
+const path = require('path')
 const {build, write} = require("./builder")
 
 let timeout = 0
@@ -53,6 +53,9 @@ http.createServer(function (request, response) {
 		case '.wav':
 			contentType = 'audio/wav'
 			break
+		case '.ico':
+			contentType = 'image/x-icon'
+			break
 	}
 
 	function tryRead(filePath, do404=false) {
@@ -60,23 +63,30 @@ http.createServer(function (request, response) {
 			if (error) {
 				if (error.code == 'ENOENT') {
 					if (do404) {
-						fs.readFile('./.out/404.html', function(error, content) {
-							response.writeHead(200, { 'Content-Type': contentType })
-							response.end(content || "404 "+filePath, 'utf-8')
+						fs.readFile('./.out/404.html', function(e, content) {
+							response.writeHead(404, { 'Content-Type': "text/html" })
+							console.log(404, error.code, filePath)
+							response.end(content || "404 "+filePath)
 						})
-					} else tryRead(filePath+".html", true)
+					} else {
+						contentType = "text/html"
+						tryRead(filePath+".html", true)
+					}
 				} else {
 					if (error.code == "EISDIR") {
+						contentType = "text/html"
 						tryRead(filePath+"/index.html")
 					} else {
 						response.writeHead(500)
+						console.log(500, error.code, filePath)
 						response.end('Sorry, check with the site admin for error: '+error.code+' ..\n'+filePath)
 						response.end()
 					}
 				}
 			} else {
 				response.writeHead(200, { 'Content-Type': contentType })
-				response.end(content, 'utf-8')
+				console.log(200, extname, contentType, filePath)
+				response.end(content)
 			}
 		})
 	}

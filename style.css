@@ -59,6 +59,14 @@ sidebar {
 	box-sizing: border-box;
 }
 
+canvas {
+	outline: 1px solid #777777;
+	max-width: 100%;
+	image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+	box-sizing: border-box;
+}
+
 sidebar ul {
 	list-style: none;
 	padding-left: 20px;
