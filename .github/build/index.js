@@ -2543,7 +2543,7 @@ function makeTOC(title, files) {
 	}
 }
 
-function build(from="./src/", toc="Home", struct={}) {
+function build(from="../../src/", toc="Home", struct={}) {
 	const files = fs.readdirSync(from, {
 		withFileTypes: true
 	})
