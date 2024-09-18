@@ -8,7 +8,7 @@ The `buildingCategoriesInfo.json` file contains a list of building categories to
 Additionally, the following keys are optional:
 
 - `displayName` (string) - The name to display ingame when hovering over this category. If not provided, defaults to the translation key associated with `name` (generally `!!! missing text !!!` for custom categories).
-- `description` (string) - The description to display ingame when hovering over this category. If not provided, defaults to the translation key associated with `name` (generally `!!! missing text !!!` for custom categories).
+- `description` (string) - The description to display ingame when hovering over this category. If not provided, defaults to the translation key associated with `name`.
 
 Here's an example of a possible `buildingCategoriesInfo.json`:
 

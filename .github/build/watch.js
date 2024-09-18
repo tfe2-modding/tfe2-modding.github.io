@@ -23,7 +23,7 @@ function redo() {
 fs.watch("./", {
 	recursive: true,
 }, (e, fn) => {
-	if (fn[0] != ".") redo()
+	if (fn && fn[0] != ".") redo()
 })
 
 redo()
