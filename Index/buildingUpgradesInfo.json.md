@@ -22,7 +22,7 @@ Lastly, an upgrade object can have keys in it to specify how much it costs. Thes
 
 `buildingUpgradesInfo.json` can contain any number of upgrades in it. Specifying a `className` that already exists will overwrite the properties of that upgrade.
 
-Here's an example of a possible `buildingCategoriesInfo.json`:
+Here's an example of a possible `buildingUpgradesInfo.json`:
 
 ```json
 [
