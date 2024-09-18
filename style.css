@@ -124,3 +124,7 @@ sidebar > ul {
 .tableOfContents a:visited {
     color: blue;
 }
+
+input[type=text], button, select {
+	padding: 3px 5px;
+}
