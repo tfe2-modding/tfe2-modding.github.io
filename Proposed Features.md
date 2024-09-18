@@ -6,11 +6,48 @@ This page is split into 3 sections: Propositions, Accepted, and Rejected. Everyt
 
 ## Propositions
 
+### `buildinginfo.json` and `buildingUpgradesInfo.json` key for spriteName
 
+This would add a new optional key to an entry in `buildinginfo.json` and `buildingUpgradesInfo.json` to specify the spriteName, which would normally be provided in the `ModTools.makeBuilding` or `ModTools.makeBuildingUpgrade`. The advantage of this is consistency with other data files that specify texture or sprite data.
+
+### `materialsInfo.json`
+
+This would be a new file that is an array of objects with the following properties:
+
+- `varName` (string) - Specifies the variable name in the code.
+- `displayName` (string) optional - Specifies the in-game display name, would default to the translation key for `varName` (`!!! missing text !!!` most likely)
+- `description` (string) optional - Specifies the in-game description, would default to the translation key for `varName` (`!!! missing text !!!` most likely)
+- `tooltip` (string) optional - A string to add to the tooltip after the description. Defaults to nothing.
+- `unlockedByDefault` (boolean) optional - Specifies whether this material should be visible on the materials list by default. Defaults to true.
+- `spriteName` (string) optional - A string to specify for the sprite used ingame to display the resource. Defaults to `spr_resource_varName`, where varName should be equal to the provided varName
+
+Materials could be added automatically from data files, or if a tooltipExt override (or other potential overrides like when to turn the text red, or what text to display) are required, a `ModTools.makeMaterial(varName, fields)` could be added to be consistant with the rest of the maker functions (the `ModTools.addMaterial` function would be preserved). The advantage of this would be to allow data files for materials similar to other data files ingame, as well as providing extra functionality that cannot be achieved right now.
+
+### Mod event system
+
+This would add two new functions, `ModTools.addListener(eventType: string, callback: any->void)`, `ModTools.removeListener(callback: any->void)`, `ModTools.hasListener(callback: any->void)` and `ModTools.emit(eventType: string, data: any)`. Any file could register a listener under an eventType, and running `ModTools.emit` would run all functions associated with the same eventType. The advantage of this being allowing mods to communicate with each other, as well as to communicate with themselves in certain scenarios. For example, a global event sending a message to all buildings to update some property within them, or one mod waiting on another mod to send some data over to finish loading.
+
+### `cost` key in relevant data files.
+
+This would add a new optional `cost` key to the following files:
+
+- `buildinginfo.json`
+- `buildingUpgradesInfo.json`
+- `bridgesInfo.json`
+- `decorationsInfo.json`
+- `buildableWorldResourcesInfo.json`
+- `cityUpgradesInfo.json`
+- `policiesInfo.json`
+
+The `cost` key would contain an object that holds keys corresponding to the material costs of the respective object. If a `cost` key exists, the game should ignore any material keys present in the base structure of the file. If a key exists in the `cost` object that is not a valid material, the game should throw an error or show a notification. The advantages of this are to prevent naming clashes with material names and preexisting keys, provide a slightly cleaner data structure, and prevent misspellings of material names not notifying the programmer of what went wrong.
 
 ## Accepted
 
+### `ModTools.onCityCreate(callback: city->void)`
 
+This function would run whenever a city is created, allowing for initialization to happen. The advantage of this is not needing to try and extend the constructor for the City class.
+
+**Accepted**: Feature will be included in the next update.
 
 ## Rejected
 
