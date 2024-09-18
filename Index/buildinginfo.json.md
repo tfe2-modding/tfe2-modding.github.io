@@ -57,42 +57,42 @@ Here's an example of a possible `buildinginfo.json`:
 
 ```json
 [
-    {
-        "className": "CorporationOfTheOwl",
-        "name": "Corporation of the Owl HQ",
-        "description": "They see everything.",
-        "food": 50000,
-        "wood": 50000,
-        "stone": 0,
-        "machineParts": 0,
-        "refinedMetal": 0,
-        "computerChips": 1250,
-        "knowledge": 75000,
-        "category": "Unique Buildings",
-        "unlockedByDefault": false,
-        "specialInfo": [
-            "unique"
-        ],
-        "residents": 12,
-        "quality": 100,
-        "jobs": 12,
-        "showUnlockHint": "Build The Machine to unlock!"
-    },
-    {
-        "className": "FunctionalHouse",
-        "name": "Functional House",
-        "description": "Don't complain, this house is exactly what you need.",
-        "food": 0,
-        "wood": 0,
-        "stone": 10,
-        "machineParts": 0,
-        "knowledge": 10000,
-        "computerChips": 1,
-        "category": "Houses",
-        "unlockedByDefault": false,
-        "specialInfo": [],
-        "residents": 10,
-        "quality": 35
-    }
+	{
+		"className": "CorporationOfTheOwl",
+		"name": "Corporation of the Owl HQ",
+		"description": "They see everything.",
+		"food": 50000,
+		"wood": 50000,
+		"stone": 0,
+		"machineParts": 0,
+		"refinedMetal": 0,
+		"computerChips": 1250,
+		"knowledge": 75000,
+		"category": "Unique Buildings",
+		"unlockedByDefault": false,
+		"specialInfo": [
+			"unique"
+		],
+		"residents": 12,
+		"quality": 100,
+		"jobs": 12,
+		"showUnlockHint": "Build The Machine to unlock!"
+	},
+	{
+		"className": "FunctionalHouse",
+		"name": "Functional House",
+		"description": "Don't complain, this house is exactly what you need.",
+		"food": 0,
+		"wood": 0,
+		"stone": 10,
+		"machineParts": 0,
+		"knowledge": 10000,
+		"computerChips": 1,
+		"category": "Houses",
+		"unlockedByDefault": false,
+		"specialInfo": [],
+		"residents": 10,
+		"quality": 35
+	}
 ]
 ```

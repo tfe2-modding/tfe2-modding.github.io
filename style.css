@@ -128,3 +128,7 @@ sidebar > ul {
 input[type=text], button, select {
 	padding: 3px 5px;
 }
+
+code {
+	tab-size: 4;
+}

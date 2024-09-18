@@ -20,18 +20,18 @@ Here's an example of a possible `stories.json`:
 
 ```json
 [
-    {
-        "link": "computerization",
+	{
+		"link": "computerization",
 		"requirements": [
-            "hackersandaliens"
+			"hackersandaliens"
 		],
-        "unlockedWithAll": true
-    },
-    {
-        "link": "advancedTechnology",
-        "requirements": [
-            "computerization"
-        ]
-    }
+		"unlockedWithAll": true
+	},
+	{
+		"link": "advancedTechnology",
+		"requirements": [
+			"computerization"
+		]
+	}
 ]
 ```
