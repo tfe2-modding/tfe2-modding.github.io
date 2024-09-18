@@ -48,7 +48,7 @@ function build(links={
 				links[file.name] = fn
 				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8"))
 			} else {
-				struct[fn] = fs.readFileSync(from+file.name, "utf8")
+				struct[fn] = fs.readFileSync(from+file.name)
 			}
 		}
 	}
@@ -74,7 +74,7 @@ function write(struct, links, to="./.out/") {
 	}]
 	function recursiveWrite(struct, to="./.out/") {
 		for (const [k, v] of Object.entries(struct)) {
-			if (typeof v == "object") {
+			if (typeof v == "object" && !(v instanceof Buffer)) {
 				fs.mkdirSync(to+k)
 				stack.push({
 					label: k.replace(/\.html$/,""),

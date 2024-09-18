@@ -4,4 +4,6 @@ This is an unofficial modding guide put together to provide more documentation o
 
 The goal is to eventually have tutorials and documentation alike, however right now all this page has is some very rough documentation. If you are looking for something specific, consult the [Index](Index/).
 
+Need a specific sprite from the game? You can extract it via the sprite browser in the [Tools](Tools/).
+
 [TODO list for the site.](TODO.html)

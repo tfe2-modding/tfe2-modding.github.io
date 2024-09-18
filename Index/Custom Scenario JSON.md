@@ -89,7 +89,7 @@ Additionally, the following keys for scenarios are optional, but need more docum
 	- `y` (number) - The Y position in pixels in the sky to place the planet.
 	- `velocity` (number) - The speed at which the planet should orbit around the center of the sky.
 - `name` (string) - Seemingly unused. 
-- `viewYMobi` (number) - Mobile override for `viewYFromBottom`
+- `viewYMobi` (number) - Mobile override for `viewYFromBottom`.
 - `isFreePlay` (boolean) - If enabled, lets you toggle unlimited resources from the advanced settings menu.
 - `generatorScripts` (array of objects) - An array of world generators, which can generate completely random islands.
 
@@ -130,173 +130,173 @@ Additionally, the following keys for scenarios are optional, but need more docum
 
 	</details>
 
-- `extraResourcesDisabled` (boolean) - if enabled, the "Extra Resources" option is not available in the initial customize screen of a Free Play scenario
-- `mobileViewStartX` (number) - `viewStartX` override for mobile
-- `lockAllPermanents` (boolean) - does the thing from scenario 1 where it hides every category
-- `speedUpStartNights` (boolean) - makes the nights at the start of the game faster, also used in scenario 1
+- `extraResourcesDisabled` (boolean) - If enabled, the "Extra Resources" option is not available in the initial customize screen of a Free Play scenario.
+- `mobileViewStartX` (number) - Mobile override for `viewStartX`.
+- `lockAllPermanents` (boolean) - Sets every building to be locked and hidden by default.
+- `speedUpStartNights` (boolean) - Speeds up the first three nights to make them go faster. Multiplies speed by x3.75 the first night, x2 the second night, and x1.5 the third night.
 
 Here is an example scenario taken from the Free Play Mini World scenario:
 
 ```json
 {
-    "goals": [
-        {
-            "name": "FreePlayStart",
-            "title": "",
-            "text": "Welcome to this Free Play Scenario!\nA few citizens are already here. Some more will arrive over the coming days.",
-            "quickText": "",
-            "nextGoal": "",
-            "subGoals": [],
-            "planning": [
-                {
-                    "type": "ScriptedStoryPart",
-                    "className": "SpawnCitizensRegularly",
-                    "spawnNumber": 100,
-                    "time": 0,
-                    "groupSizeMin": 2,
-                    "groupSizeMax": 3,
-                    "ageRangeMin": 18,
-                    "ageRangeMax": 40,
-                    "world": 0,
-                    "timeBetweenMin": 15,
-                    "timeBetweenMax": 25,
-                    "afterDoneMessage": "All the people from your ship have now arrived. Of course, your population can still grow through their offspring."
-                }
-            ]
-        }
-    ],
-    "startGoal": "FreePlayStart",
-    "lockPermanents": [],
-    "worlds": [
-        {
-            "rect": {
-                "x": 100,
-                "y": 160,
-                "width": 260,
-                "height": 60
-            },
-            "seed": 2000,
-            "worldResources": [
-                { "position": 2, "className": "AlienRuins" },
-                { "position": 5, "className": "AlienRuins" },
-                { "position": 7, "className": "AlienRuins" },
-                { "position": 10, "className": "AlienRuins" }
-            ],
-            "buildingStacks": [
-                { "position": 0, "classNames": ["FuturisticHome", "FuturisticHome", "FuturisticHome", "FuturisticHome", "FuturisticHome", "LandingSite"] },
-                { "position": 1, "classNames": ["StoneMine", "StoneMine", "StoneMine"] },
-                { "position": 2, "classNames": ["StoneTeleporter", "LandedExplorationShip"] },
-                { "position": 3, "classNames": ["StoneMine", "StoneMine", "StoneMine"] },
-                { "position": 4, "classNames": ["FuturisticHome", "FuturisticHome", "FuturisticHome", "FuturisticHome", "LandingSite"] },
-                { "position": 5, "classNames": ["GrapheneLab", "LandingSite"] },
-                { "position": 6, "classNames": ["GrapheneLab", "GrapheneLab", "GrapheneLab", "LandingSite"] },
-                { "position": 7, "classNames": ["GrapheneLab", "LandingSite"] },
-                { "position": 8, "classNames": ["FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "LandingSite"] },
-                { "position": 9, "classNames": ["MachinePartsFactory", "StoneMine", "StoneMine"] },
-                { "position": 10, "classNames": ["StoneTeleporter", "LandedExplorationShip_mirrored"] },
-                { "position": 11, "classNames": ["StoneMine", "StoneMine", "MachinePartsFactory"] },
-                { "position": 12, "classNames": ["FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "LandingSite"] }
-            ],
-            "citizens": [
-                { "amount": 40, "ageRangeMin": 20, "ageRangeMax": 25, "minX": 0, "maxX": 230 }
-            ]
-        }
-    ],
-    "initialMaterials": {
-        "food": 1000,
-        "stone": 2000,
-        "wood": 999,
-        "knowledge": 100,
-        "machineParts": 1000,
-        "refinedMetal": 0,
-        "computerChips": 0,
-        "graphene": 100
-    },
-    "viewYFromBottom": 270,
-    "extraResourcesDisabled": true,
-    "useInviteCitizens": true,
-    "isFreePlay": true,
-    "backgroundSprites": [
-        {
-            "sprite": "spr_planets_small",
-            "width": 40,
-            "image": 1,
-            "x": 200,
-            "y": 500,
-            "velocity": 0.3
-        },
-        {
-            "sprite": "spr_planets_small",
-            "width": 40,
-            "image": 3,
-            "x": 300,
-            "y": -200,
-            "velocity": 0.5
-        },
-        {
-            "sprite": "spr_planets_small",
-            "width": 40,
-            "image": 2,
-            "x": -200,
-            "y": 30,
-            "velocity": -0.6
-        },
-        {
-            "sprite": "spr_planets_big",
-            "width": 100,
-            "image": 1,
-            "x": -400,
-            "y": -180,
-            "velocity": 1.2
-        },
-        {
-            "sprite": "spr_planets_bigger",
-            "width": 120,
-            "image": 0,
-            "x": 600,
-            "y": -340,
-            "velocity": -0.4
-        },
-        {
-            "sprite": "spr_planets_big",
-            "width": 100,
-            "image": 6,
-            "x": -400,
-            "y": 350,
-            "velocity": 0.63
-        },
-        {
-            "sprite": "spr_planets_bigger",
-            "width": 120,
-            "image": 2,
-            "x": 800,
-            "y": 440,
-            "velocity": 0.5
-        },
-        {
-            "sprite": "spr_planet_ring_big",
-            "width": 277,
-            "image": 0,
-            "x": 200,
-            "y": -900,
-            "velocity": 0.55
-        },
-        {
-            "sprite": "spr_planets_small",
-            "width": 40,
-            "image": 0,
-            "x": -900,
-            "y": -500,
-            "velocity": 0.1
-        },
-        {
-            "sprite": "spr_planets_medium",
-            "width": 80,
-            "image": 0,
-            "x": -900,
-            "y": -500,
-            "velocity": 0.1
-        }
-    ]
+	"goals": [
+		{
+			"name": "FreePlayStart",
+			"title": "",
+			"text": "Welcome to this Free Play Scenario!\nA few citizens are already here. Some more will arrive over the coming days.",
+			"quickText": "",
+			"nextGoal": "",
+			"subGoals": [],
+			"planning": [
+				{
+					"type": "ScriptedStoryPart",
+					"className": "SpawnCitizensRegularly",
+					"spawnNumber": 100,
+					"time": 0,
+					"groupSizeMin": 2,
+					"groupSizeMax": 3,
+					"ageRangeMin": 18,
+					"ageRangeMax": 40,
+					"world": 0,
+					"timeBetweenMin": 15,
+					"timeBetweenMax": 25,
+					"afterDoneMessage": "All the people from your ship have now arrived. Of course, your population can still grow through their offspring."
+				}
+			]
+		}
+	],
+	"startGoal": "FreePlayStart",
+	"lockPermanents": [],
+	"worlds": [
+		{
+			"rect": {
+				"x": 100,
+				"y": 160,
+				"width": 260,
+				"height": 60
+			},
+			"seed": 2000,
+			"worldResources": [
+				{ "position": 2, "className": "AlienRuins" },
+				{ "position": 5, "className": "AlienRuins" },
+				{ "position": 7, "className": "AlienRuins" },
+				{ "position": 10, "className": "AlienRuins" }
+			],
+			"buildingStacks": [
+				{ "position": 0, "classNames": ["FuturisticHome", "FuturisticHome", "FuturisticHome", "FuturisticHome", "FuturisticHome", "LandingSite"] },
+				{ "position": 1, "classNames": ["StoneMine", "StoneMine", "StoneMine"] },
+				{ "position": 2, "classNames": ["StoneTeleporter", "LandedExplorationShip"] },
+				{ "position": 3, "classNames": ["StoneMine", "StoneMine", "StoneMine"] },
+				{ "position": 4, "classNames": ["FuturisticHome", "FuturisticHome", "FuturisticHome", "FuturisticHome", "LandingSite"] },
+				{ "position": 5, "classNames": ["GrapheneLab", "LandingSite"] },
+				{ "position": 6, "classNames": ["GrapheneLab", "GrapheneLab", "GrapheneLab", "LandingSite"] },
+				{ "position": 7, "classNames": ["GrapheneLab", "LandingSite"] },
+				{ "position": 8, "classNames": ["FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "LandingSite"] },
+				{ "position": 9, "classNames": ["MachinePartsFactory", "StoneMine", "StoneMine"] },
+				{ "position": 10, "classNames": ["StoneTeleporter", "LandedExplorationShip_mirrored"] },
+				{ "position": 11, "classNames": ["StoneMine", "StoneMine", "MachinePartsFactory"] },
+				{ "position": 12, "classNames": ["FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "FuturisticHome_mirrored", "LandingSite"] }
+			],
+			"citizens": [
+				{ "amount": 40, "ageRangeMin": 20, "ageRangeMax": 25, "minX": 0, "maxX": 230 }
+			]
+		}
+	],
+	"initialMaterials": {
+		"food": 1000,
+		"stone": 2000,
+		"wood": 999,
+		"knowledge": 100,
+		"machineParts": 1000,
+		"refinedMetal": 0,
+		"computerChips": 0,
+		"graphene": 100
+	},
+	"viewYFromBottom": 270,
+	"extraResourcesDisabled": true,
+	"useInviteCitizens": true,
+	"isFreePlay": true,
+	"backgroundSprites": [
+		{
+			"sprite": "spr_planets_small",
+			"width": 40,
+			"image": 1,
+			"x": 200,
+			"y": 500,
+			"velocity": 0.3
+		},
+		{
+			"sprite": "spr_planets_small",
+			"width": 40,
+			"image": 3,
+			"x": 300,
+			"y": -200,
+			"velocity": 0.5
+		},
+		{
+			"sprite": "spr_planets_small",
+			"width": 40,
+			"image": 2,
+			"x": -200,
+			"y": 30,
+			"velocity": -0.6
+		},
+		{
+			"sprite": "spr_planets_big",
+			"width": 100,
+			"image": 1,
+			"x": -400,
+			"y": -180,
+			"velocity": 1.2
+		},
+		{
+			"sprite": "spr_planets_bigger",
+			"width": 120,
+			"image": 0,
+			"x": 600,
+			"y": -340,
+			"velocity": -0.4
+		},
+		{
+			"sprite": "spr_planets_big",
+			"width": 100,
+			"image": 6,
+			"x": -400,
+			"y": 350,
+			"velocity": 0.63
+		},
+		{
+			"sprite": "spr_planets_bigger",
+			"width": 120,
+			"image": 2,
+			"x": 800,
+			"y": 440,
+			"velocity": 0.5
+		},
+		{
+			"sprite": "spr_planet_ring_big",
+			"width": 277,
+			"image": 0,
+			"x": 200,
+			"y": -900,
+			"velocity": 0.55
+		},
+		{
+			"sprite": "spr_planets_small",
+			"width": 40,
+			"image": 0,
+			"x": -900,
+			"y": -500,
+			"velocity": 0.1
+		},
+		{
+			"sprite": "spr_planets_medium",
+			"width": 80,
+			"image": 0,
+			"x": -900,
+			"y": -500,
+			"velocity": 0.1
+		}
+	]
 }
 ```
