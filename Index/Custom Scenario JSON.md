@@ -89,7 +89,7 @@ Additionally, the following keys for scenarios are optional, but need more docum
 	- `y` (number) - The Y position in pixels in the sky to place the planet.
 	- `velocity` (number) - The speed at which the planet should orbit around the center of the sky.
 - `name` (string) - Seemingly unused. 
-- `viewYMobi` (number) - Mobile override for `viewYFromBottom`
+- `viewYMobi` (number) - Mobile override for `viewYFromBottom`.
 - `isFreePlay` (boolean) - If enabled, lets you toggle unlimited resources from the advanced settings menu.
 - `generatorScripts` (array of objects) - An array of world generators, which can generate completely random islands.
 
@@ -130,10 +130,10 @@ Additionally, the following keys for scenarios are optional, but need more docum
 
 	</details>
 
-- `extraResourcesDisabled` (boolean) - no clue
-- `mobileViewStartX` (number) - `viewStartX` override for mobile
-- `lockAllPermanents` (boolean) - does the thing from scenario 1 where it hides every category
-- `speedUpStartNights` (boolean) - makes the nights at the start of the game faster, also used in scenario 1
+- `extraResourcesDisabled` (boolean) - Disables the ability to start with extra resources in free play.
+- `mobileViewStartX` (number) - Mobile override for `viewStartX`.
+- `lockAllPermanents` (boolean) - Sets every building to be locked and hidden by default.
+- `speedUpStartNights` (boolean) - Speeds up the first three nights to make them go faster. Multiplies speed by x3.75 the first night, x2 the second night, and x1.5 the third night.
 
 Here is an example scenario taken from the Free Play Mini World scenario:
 
