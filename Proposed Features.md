@@ -6,6 +6,15 @@ This page is split into 3 sections: Propositions, Accepted, and Rejected. Everyt
 
 ## Propositions
 
+### `skyColors` property for custom scenarios
+
+This would add a new optional key to a scenario JSON file that held an array of sky colors. Each sky color would have two keys:
+
+- `color` (color) - The color of the sky.
+- `time` (number) - The time to display the color.
+
+This could be used to create custom atmospheres and make each scenario feel unique. Advantages of this being it's a new feature.
+
 ### `buildinginfo.json` and `buildingUpgradesInfo.json` key for spriteName
 
 This would add a new optional key to an entry in `buildinginfo.json` and `buildingUpgradesInfo.json` to specify the spriteName, which would normally be provided in the `ModTools.makeBuilding` or `ModTools.makeBuildingUpgrade`. The advantage of this is consistency with other data files that specify texture or sprite data.
