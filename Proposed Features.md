@@ -17,7 +17,6 @@ This would be a new file that is an array of objects with the following properti
 - `varName` (string) - Specifies the variable name in the code.
 - `displayName` (string) optional - Specifies the in-game display name, would default to the translation key for `varName` (`!!! missing text !!!` most likely)
 - `description` (string) optional - Specifies the in-game description, would default to the translation key for `varName` (`!!! missing text !!!` most likely)
-- `tooltip` (string) optional - A string to add to the tooltip after the description. Defaults to nothing.
 - `unlockedByDefault` (boolean) optional - Specifies whether this material should be visible on the materials list by default. Defaults to true.
 - `spriteName` (string) optional - A string to specify for the sprite used ingame to display the resource. Defaults to `spr_resource_varName`, where varName should be equal to the provided varName
 
