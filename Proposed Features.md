@@ -26,6 +26,10 @@ Materials could be added automatically from data files, or if a tooltipExt overr
 
 This would add two new functions, `ModTools.addListener(eventType: string, callback: any->void)`, `ModTools.removeListener(callback: any->void)`, `ModTools.hasListener(callback: any->void)` and `ModTools.emit(eventType: string, data: any)`. Any file could register a listener under an eventType, and running `ModTools.emit` would run all functions associated with the same eventType. The advantage of this being allowing mods to communicate with each other, as well as to communicate with themselves in certain scenarios. For example, a global event sending a message to all buildings to update some property within them, or one mod waiting on another mod to send some data over to finish loading.
 
+### `maxCount` key in `buildinginfo.json`
+
+This would add a new optional `maxCount` key to `buildinginfo.json` that takes in a number. Whatever `maxCount` is set to is the maximum of that type of building you are allowed to build. The advantage of this being it's a new feature.
+
 ### `cost` key in relevant data files.
 
 This would add a new optional `cost` key to the following files:
