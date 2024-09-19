@@ -20,7 +20,14 @@ This would be a new file that is an array of objects with the following properti
 - `unlockedByDefault` (boolean) optional - Specifies whether this material should be visible on the materials list by default. Defaults to true.
 - `spriteName` (string) optional - A string to specify for the sprite used ingame to display the resource. Defaults to `spr_resource_varName`, where varName should be equal to the provided varName
 
-Materials could be added automatically from data files, or if a tooltipExt override (or other potential overrides like when to turn the text red, or what text to display) are required, a `ModTools.makeMaterial(varName, fields)` could be added to be consistant with the rest of the maker functions (the `ModTools.addMaterial` function would be preserved). The advantage of this would be to allow data files for materials similar to other data files ingame, as well as providing extra functionality that cannot be achieved right now.
+Materials could be added automatically from data files, or if a tooltipExt override (or other potential overrides like when to turn the text red, or what text to display) are required, a `ModTools.makeMaterial(varName, fields)` could be added to be consistant with the rest of the maker functions (the `ModTools.addMaterial` function would be preserved). `fields` could contain any of the keys from `materialsInfo.json` or one of the following:
+
+- `tooltipExt` (function, returns string) - Extra information to append to the tooltip.
+- `info` (function, returns string) - Replaces the entire default tooltip description with this, including the production text.
+- `getAmount` (function, returns string or number) - Returns the text or number to display on the materials list.
+- `makeRed` (function, returns boolean) - Determines whether or not to display the materials text in red or not, similar to when you run out of food.
+
+The advantage of this would be to allow data files for materials similar to other data files ingame, as well as providing extra functionality that cannot be achieved right now.
 
 ### Mod event system
 
