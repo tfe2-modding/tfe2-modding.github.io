@@ -24,7 +24,7 @@ This would be a new file that is an array of objects with the following properti
 Materials could be added automatically from data files, or if a tooltipExt override (or other potential overrides like when to turn the text red, or what text to display) are required, a `ModTools.makeMaterial(varName, fields)` could be added to be consistant with the rest of the maker functions (the `ModTools.addMaterial` function would be preserved). `fields` could contain any of the keys from `materialsInfo.json` or one of the following:
 
 - `tooltipExt` (function, returns string) - Extra information to append to the tooltip.
-- `info` (function(city), returns string) - Replaces the entire default tooltip description with this, including the production text.
+- `info` (function(city, getProductionInfo), returns string) - Replaces the entire default tooltip description with this, including the production text.
 - `getAmount` (function(city), returns string or number) - Returns the text or number to display on the materials list.
 - `makeRed` (function(city), returns boolean) - Determines whether or not to display the materials text in red or not, similar to when you run out of food.
 
