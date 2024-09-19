@@ -28,7 +28,7 @@ Materials could be added automatically from data files, or if a tooltipExt overr
 - `getAmount` (function(city), returns string or number) - Returns the text or number to display on the materials list.
 - `makeRed` (function(city), returns boolean) - Determines whether or not to display the materials text in red or not, similar to when you run out of food.
 
-The advantage of this would be to allow data files for materials similar to other data files ingame, as well as providing extra functionality that cannot be achieved right now.
+Adding material entries with the same varName as built in ones will ignore them (I mean the vanilla materials are like super hardcoded that would be a lot of work). The advantage of this would be to allow data files for materials similar to other data files ingame, as well as providing extra functionality that cannot be achieved right now.
 
 ### Mod event system
 
