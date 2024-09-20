@@ -1,11 +1,11 @@
 - Get a good chunk of raw documentation on all the data-driven JSON files into the website.
 	- `bridgesInfo.json`
 	- `buildableWorldResourcesInfo.json`
-	- `buildingCategoriesInfo.json`
+	- ~~`buildingCategoriesInfo.json`~~
 	- ~~`buildinginfo.json`~~
-	- `buildingUpgradesInfo.json`
+	- ~~`buildingUpgradesInfo.json`~~
 	- `cityUpgradesInfo.json`
-	- `decorationsInfo.json`
+	- ~~`decorationsInfo.json`~~
 	- `policiesInfo.json`
 	- ~~`stories.json`~~
 	- `Custom Scenario JSON`
@@ -24,6 +24,10 @@
 	- `produce`
 	- `consume`
 	- `onCityUpdate`
+	- `onCityCreate` (next update)
+	- `addUpgradeToBuilding` (next update)
+	- `setModEnabled` (next update)
+	- `modIsEnabled` (next update)
 	- `onModsLoaded`
 	- `onLoadStart`
 	- `addSaveData`
@@ -44,4 +48,4 @@
 	- Custom randomly generated scenario
 - Lastly after all that is done, if I'm still interested in this project, make a few tools
 	- Generators for JSON files (such as buildinginfo.json, custom scenarios, etc)
-	- Sprite viewer and packer for PIXI spritesheets
+	- ~~Sprite viewer~~ and packer for PIXI spritesheets
