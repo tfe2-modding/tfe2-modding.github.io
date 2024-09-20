@@ -100,13 +100,15 @@ function write(struct, links, to="./.out/") {
 		<meta name="author" content="DT makes games">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="/style.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+		<link id="highlights" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
 	</head>
 	<body>
 		<sidebar>
+		<label><input type="checkbox" id="darkmode"> Dark mode</label>
 ${sidebar}
+<small><a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php">Official modding guide</a></small>
 		</sidebar>
 		<main>
 			<p>${navpath}</p>
@@ -114,6 +116,7 @@ ${v}
 		<br>
 		<p><small><a href="https://github.com/tfe2-modding/tfe2-modding.github.io">GitHub repository</a> • <a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php">Official modding guide</a></small></p>
 		</main>
+		<script src="/global.js"></script>
 	</body>
 </html>`
 				}

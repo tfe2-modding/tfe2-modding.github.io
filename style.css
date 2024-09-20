@@ -1,22 +1,41 @@
+:root {
+	--link: blue;
+	--visited: purple;
+	--background: #d0d0d0;
+	--page: white;
+	--color: #060606;
+}
+
+:root:has(.darkmode) {
+	--link: lightblue;
+	--visited: pink;
+	--background: #111111;
+	--page: #2f2f2f;
+	--color: #f7f7f7;
+	color-scheme: dark;
+}
+
 body {
     font-family: "Open Sans", sans-serif;
     margin: 0;
-	background-color: white;
+	background-color: var(--page);
 	width: 100%;
 	max-width: 1224px;
 	margin-left: auto;
 	margin-right: auto;
+	overflow-y: scroll;
 }
 
 html {
 	width: 100%;
+	color: var(--color);
 }
 
 code, command {
     font-family: "Source Code Pro", monospace;
 }
 
-summary {
+summary, label {
 	user-select: none;
 }
 
@@ -40,17 +59,17 @@ main {
 	box-sizing: border-box;
     margin-right: auto;
     margin-left: auto;
-    color: #060606;
+    color: var(--color);
     padding: 30px;
-    background-color: white;
+    background-color: var(--page);
 	margin-bottom: 30px;
 }
 
 sidebar {
     width: 306px;
-    color: #060606;
+    color: var(--color);
     padding: 30px;
-    background-color: white;
+    background-color: var(--page);
 	display: none;
 	margin-right: 10px;
 	position: fixed;
@@ -76,10 +95,15 @@ sidebar > ul {
 	padding-left: 0px;
 }
 
+sidebar li:before {
+    content: "-";
+    margin-right: 10px;
+}
+
 @media screen and (min-width: 848px) {
 	body {
         margin-top: 30px;
-		background-color: #d0d0d0;
+		background-color: var(--background);
 	}
 }
 
@@ -94,35 +118,12 @@ sidebar > ul {
 	}
 }
 
-.tableOfContents {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+a {
+    color: var(--link);
 }
 
-.tableOfContentsLevel2 {
-    padding-left: 0px;
-}
-
-.tableOfContentsLevel3 {
-    padding-left: 40px;
-}
-
-.tableOfContents > li:before {
-    content: "-";
-    margin-right: 10px;
-}
-
-.tableOfContents a {
-    text-decoration: none;
-}
-
-.tableOfContents a {
-    color: blue;
-}
-
-.tableOfContents a:visited {
-    color: blue;
+a:visited {
+    color: var(--link);
 }
 
 input[type=text], button, select {
@@ -131,4 +132,21 @@ input[type=text], button, select {
 
 code {
 	tab-size: 4;
+}
+
+pre {
+	position: relative;
+}
+
+pre .copy {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 10px;
+	user-select: none;
+	cursor: copy;
+}
+
+pre .copy:hover:not(:active) {
+	background: #77777777;
 }
