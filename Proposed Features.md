@@ -6,14 +6,9 @@ This page is split into 3 sections: Propositions, Accepted, and Rejected. Everyt
 
 ## Propositions
 
-### `skyColors` property for custom scenarios
+### `lang_XX.csv` loading
 
-This would add a new optional key to a scenario JSON file that held an array of sky colors. Each sky color would have two keys:
-
-- `color` (color) - The color of the sky.
-- `time` (number) - The time to display the color.
-
-This could be used to create custom atmospheres and make each scenario feel unique. Advantages of this being it's a new feature.
+This would allow loading language csv files into the game to add new translation keys in order to support multiple languages. The advantage of this being there really is no easy way to do this right now.
 
 ### `buildinginfo.json` and `buildingUpgradesInfo.json` key for spriteName
 
@@ -66,6 +61,17 @@ The `cost` key would contain an object that holds keys corresponding to the mate
 ### `ModTools.onCityCreate(callback: city->void)`
 
 This function would run whenever a city is created, allowing for initialization to happen. The advantage of this is not needing to try and extend the constructor for the City class.
+
+**Accepted**: Feature will be included in the next update.
+
+### `skyColors` property for custom scenarios
+
+This would add a new optional key to a scenario JSON file that held an array of sky colors. Each sky color would have two keys:
+
+- `color` (color) - The color of the sky.
+- `time` (number) - The time to display the color.
+
+This could be used to create custom atmospheres and make each scenario feel unique. Advantages of this being it's a new feature.
 
 **Accepted**: Feature will be included in the next update.
 

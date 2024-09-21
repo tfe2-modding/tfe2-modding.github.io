@@ -106,11 +106,11 @@ function write(struct, links, to="./.out/") {
 	</head>
 	<body>
 		<sidebar>
-		<label><input type="checkbox" id="darkmode"> Dark mode</label>
 ${sidebar}
 <small><a href="https://florianvanstrien.nl/TheFinalEarth2/modding.php">Official modding guide</a></small>
 		</sidebar>
 		<main>
+			<label id="upperright"><input type="checkbox" id="darkmode"> Dark mode</label>
 			<p>${navpath}</p>
 ${v}
 		<br>

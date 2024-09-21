@@ -16,10 +16,10 @@ The `buildinginfo.json` file controls what buildings are registered in the game.
 	- `"disableInsertReplaceOrBuildOnTop"` - This building cannot have a building inserted directly below it or placed directly on top of it.
 	- `"notUniqueIfGalacticLibrary"` - If unique, this building can be built twice if the Galactic Library has been built.
 	- `"cityTop"` - This building cannot have anything placed anywhere above it. Used in the rocket.
-	- `"as_multi_decor"` - Replaces the standard build button with multiple copies of this building with different sprites in the build menu. Used with the painted blocks, requires additional code to function correctly.
-	- `"as_multi_decor_anycolor"` - Replaces the standard build button with a button to pull up a color wheel, specifying the color of the building. Used with the painted blocks, requires additional code to function correctly.
+	- `"as_multi_decor"` - Replaces the standard build button with multiple copies of this building with different sprites in the build menu. Used with the painted blocks, requires the building to be made with the `customize` field to function correctly.
+	- `"as_multi_decor_anycolor"` - Replaces the standard build button with a button to pull up a color wheel, specifying the color of the building. Used with the painted blocks, requires the building to be made with the `customize` field to function correctly.
 	- `"has_multi_decor_spec"` - Specifies that this building has a multi decor spec. Requires a `"multi_decor_spec:L"` string and a `"as_multi_decor"` string.
-	- `"multi_decor_spec:L"` - Sets the sprites replaced by `"as_multi_decor"` with specific sprites in the build menu. Replace `L` with a comma-separated list of sprite names. Used with the decorative windows, requires additional code to function correctly.
+	- `"multi_decor_spec:L"` - Sets the sprites replaced by `"as_multi_decor"` with specific sprites in the build menu. Replace `L` with a comma-separated list of sprite names. Used with the decorative windows, requires the building to be made with the `customize` field to function correctly.
 	- `"mirrorable"` - This building can be mirrored.
 
 </details>

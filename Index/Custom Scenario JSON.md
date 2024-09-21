@@ -41,7 +41,7 @@ A custom scenario is a JSON file with a name corresponding with the link in `sto
 	- `buildingStacks` (array of objects) - A list of the building stacks to place into the world.
 
 		- `position` (integer) - The position in tiles to place this building stack.
-		- `classNames` (array of strings) - The `className` of the corresponding buildings as defined in [buildinginfo.json](buildinginfo.json.html)
+		- `classNames` (array of strings) - The `className` of the corresponding buildings as defined in [buildinginfo.json](buildinginfo.json.html). If specified as `NULL` will leave an air pocket, and there are special hardcoded overrides for `LandedExplorationShip_mirrored`, `FuturisticHome_mirrored`, and `Loft_mirrored`. There is also a special format that can be used: `className*mirrored.decoration` in order to configure buildings with a `customize` field, like painted blocks.
 
 		Building stacks will place directly on the ground unless there is a world resource in the same position. If a building stack is going to overlap a world resource, it places one tile higher. Building stacks place their buildings starting with the first building in the list as the bottom of the stack.
 

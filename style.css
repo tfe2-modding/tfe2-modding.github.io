@@ -63,6 +63,7 @@ main {
     padding: 30px;
     background-color: var(--page);
 	margin-bottom: 30px;
+	position: relative;
 }
 
 sidebar {
@@ -149,4 +150,9 @@ pre .copy {
 
 pre .copy:hover:not(:active) {
 	background: #77777777;
+}
+
+#upperright {
+	position: absolute;
+	right: 30px;
 }

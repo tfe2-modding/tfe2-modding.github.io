@@ -32,7 +32,6 @@
 	- `onLoadStart`
 	- `addSaveData`
 	- `addSaveDataEarly`
-- Create a reference page where pages from the [Index](Index/) are organized by category.
 - Make a few tutorials that can walk someone through the process of making a mod. Ideas include:
 	- Setting up the mod folder
 	- Custom decorations
