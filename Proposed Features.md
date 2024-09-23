@@ -1,4 +1,4 @@
-# Proposed Features
+# Proposed Features 
 
 This page is for proposed extensions, functions, and features of the current modding API. If you have ideas for a new feature, you can make a pull request to add it to this page, so long as there is a clear reason why it is being added.
 
