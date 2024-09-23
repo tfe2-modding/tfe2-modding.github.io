@@ -29,13 +29,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Generate Contributors SVG
         uses: wow-actions/contributors-list@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           svgPath: ./cool.svg
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Build
         uses: ./.github/build
       - name: Setup Pages
