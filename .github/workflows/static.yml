@@ -33,6 +33,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         uses: ./.github/build
+      - name: Generate Contributors SVG
+        uses: wow-actions/contributors-list@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          svgPath: CONTRIBUTORS.svg
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
