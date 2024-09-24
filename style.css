@@ -156,3 +156,12 @@ pre .copy:hover:not(:active) {
 	position: absolute;
 	right: 30px;
 }
+
+.cool {
+	position: relative;
+}
+
+.cool embed {
+	position: absolute;
+	opacity: 0;
+}
