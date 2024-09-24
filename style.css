@@ -159,6 +159,11 @@ pre .copy:hover:not(:active) {
 
 .cool {
 	position: relative;
+	width: 100%;
+}
+
+.cool embed, .cool img {
+	width: 100%;
 }
 
 .cool embed {
