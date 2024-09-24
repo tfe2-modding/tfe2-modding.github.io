@@ -157,16 +157,6 @@ pre .copy:hover:not(:active) {
 	right: 30px;
 }
 
-.cool {
-	position: relative;
-	width: 100%;
-}
-
-.cool embed, .cool img {
-	width: 100%;
-}
-
-.cool embed {
-	position: absolute;
-	opacity: 0;
+.contrib-link {
+	text-decoration: none;
 }
