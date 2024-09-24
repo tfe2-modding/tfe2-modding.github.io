@@ -2,6 +2,8 @@ const fs = require("fs")
 const path = require('path')
 const marked = require("./marked")
 
+const contrib = fs.readFileSync(".contrib")
+
 function makeTOC(title, files) {
 	if (files.length == 0) {
 		return "Nothing in this directory"
@@ -46,7 +48,7 @@ function build(links={
 			})
 			if (isMD) {
 				links[file.name] = fn
-				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8"))
+				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8").replace("{{@.contrib}}", contrib))
 			} else {
 				struct[fn] = fs.readFileSync(from+file.name)
 			}
