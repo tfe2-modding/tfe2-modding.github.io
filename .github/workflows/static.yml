@@ -44,9 +44,9 @@ jobs:
             </div>
           itemTemplate: >
             <a
-              id="contrib-{{{ name }}}"
               title="{{{ name }}}"
               href="{{{ url }}}"
+              class="contrib-link"
               target="_blank"
               rel="nofollow sponsored"
             >
