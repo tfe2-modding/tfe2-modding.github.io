@@ -9,3 +9,7 @@ Need a specific sprite from the game? You can extract it via the sprite browser 
 There is also a page full of [Proposed Features](Proposed%20Features.html).
 
 [TODO list for the site.](TODO.html)
+
+Contributors:
+
+![contributors](cool.svg)
