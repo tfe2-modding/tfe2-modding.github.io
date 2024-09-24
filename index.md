@@ -12,4 +12,4 @@ There is also a page full of [Proposed Features](Proposed%20Features.html).
 
 Contributors:
 
-![contributors](cool.svg)
+<embed src="cool.svg"></embed>
