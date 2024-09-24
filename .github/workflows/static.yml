@@ -35,9 +35,27 @@ jobs:
         uses: wow-actions/contributors-list@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          svgPath: cool.svg
+          svgPath: .contrib
           includeBots: false
           noCommit: true
+          svgTemplate: >
+            <div>
+              {{{ contributors }}}
+            </div>
+          itemTemplate: >
+            <a
+              id="contrib-{{{ name }}}"
+              title="{{{ name }}}"
+              href="{{{ url }}}"
+              target="_blank"
+              rel="nofollow sponsored"
+            >
+              <img
+                width="{{ width }}"
+                height="{{ height }}"
+                src="{{{ avatar }}}"
+              />
+            </a>
       - name: Build
         uses: ./.github/build
       - name: Setup Pages
