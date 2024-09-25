@@ -4,15 +4,17 @@ const marked = require("./marked")
 
 const contrib = fs.readFileSync(".contrib")
 
+const link = Symbol()
+
 function makeTOC(title, files) {
 	if (files.length == 0) {
 		return "Nothing in this directory"
 	} else {
 		return files.map(e=>{
 			if (e.isDirectory()) {
-				return `- [${e.name}](${encodeURI(e.name)}/)`
+				return `- [${e.name}](${encodeURI(e.name.replace(/\s+/gm, ""))}/)`
 			} else {
-				return `- [${e.name.replace(/\.md$/, "")}](${encodeURI(e.name.replace(/\.md$/, ".html"))})`
+				return `- [${e.name.replace(/\.md$/, "")}](${encodeURI(e.name.replace(/\.md$/, ".html").replace(/\s+/gm, ""))})`
 			}
 		}).join("\n")
 	}
@@ -37,10 +39,10 @@ function build(links={
 	}
 	for (let i = 0; i < files.length; i++) {
 		const file = files[i]
-		const f = file.name.replace(/\s+/gm, "")
+		const f = file.name
 		if (file.isDirectory()) {
 			const dir = struct[f] = {}
-			build(links[f] = {}, from+file.name+"/", f, dir)
+			build(links[file.name] = {}, from+file.name+"/", f, dir)
 		} else {
 			let isMD = false
 			let fn = f.replace(/\.md$/, function(m) {
@@ -48,7 +50,7 @@ function build(links={
 				return ".html"
 			})
 			if (isMD) {
-				links[f] = fn
+				links[file.name] = fn
 				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8").replace("{{@.contrib}}", contrib))
 			} else {
 				struct[fn] = fs.readFileSync(from+file.name)
@@ -61,11 +63,11 @@ function build(links={
 function makeSidebar(links, from="/") {
 	return `<ul>${Object.entries(links).map(([key, value])=>{
 		if (typeof value == "object") {
-			return `<li><a href="${from+key+"/"}">${key}</a>\n${makeSidebar(value, from+key+"/")}\n</li>`
+			return `<li><a href="${from+key.replace(/\s+/gm, "")+"/"}">${key}</a>\n${makeSidebar(value, from+key.replace(/\s+/gm, "")+"/")}\n</li>`
 		} else {
 			if (key == "index.md" || key == "404.md") {
 				return ""
-			} else return `<li><a href="${from+value}">${key.replace(/\.md$/,"")}</a></li>`
+			} else return `<li><a href="${from+value.replace(/\s+/gm, "")}">${key.replace(/\.md$/,"")}</a></li>`
 		}
 	}).join("\n")}</ul>`
 }
@@ -77,13 +79,14 @@ function write(struct, links, to="./.out/") {
 	}]
 	function recursiveWrite(struct, to="./.out/") {
 		for (const [k, v] of Object.entries(struct)) {
+			let kn = k.replace(/\s+/gm, "")
 			if (typeof v == "object" && !(v instanceof Buffer)) {
-				fs.mkdirSync(to+k)
+				fs.mkdirSync(to+kn)
 				stack.push({
 					label: k.replace(/\.html$/,""),
-					href: to.replace(/^\.\/.out/,"")+k+"/",
+					href: to.replace(/^\.\/.out/,"")+kn+"/",
 				})
-				recursiveWrite(v, to+k+"/")
+				recursiveWrite(v, to+kn+"/")
 				stack.pop()
 			} else {
 				let content = v
@@ -123,7 +126,7 @@ ${v}
 	</body>
 </html>`
 				}
-				fs.writeFileSync(to+k, content)
+				fs.writeFileSync(to+kn, content)
 			}
 		}
 	}
