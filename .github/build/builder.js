@@ -37,17 +37,18 @@ function build(links={
 	}
 	for (let i = 0; i < files.length; i++) {
 		const file = files[i]
+		const f = file.name.replace(/\s+/gm, "")
 		if (file.isDirectory()) {
-			const dir = struct[file.name] = {}
-			build(links[file.name] = {}, from+file.name+"/", file.name, dir)
+			const dir = struct[f] = {}
+			build(links[f] = {}, from+file.name+"/", f, dir)
 		} else {
 			let isMD = false
-			let fn = file.name.replace(/\.md$/, function(m) {
+			let fn = f.replace(/\.md$/, function(m) {
 				isMD = true
 				return ".html"
 			})
 			if (isMD) {
-				links[file.name] = fn
+				links[f] = fn
 				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8").replace("{{@.contrib}}", contrib))
 			} else {
 				struct[fn] = fs.readFileSync(from+file.name)

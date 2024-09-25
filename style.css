@@ -162,3 +162,8 @@ pre .copy:hover:not(:active) {
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
+
+red {
+	font-weight: bold;
+	color: red;
+}

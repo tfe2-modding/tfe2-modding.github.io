@@ -1,8 +1,8 @@
 # Custom Scenario JSON
 
-Custom scenarios are quite complex, and not everything has been fully found out/documented yet.
+Scenarios are quite complex, and not everything has been fully found out/documented yet.
 
-A custom scenario is a JSON file with a name corresponding with the link in `stories.json`, and places in a sub-folder named `stories`. Each custom scenario contains a single object file defining everything in that scenario. A scenario object must have the following keys:
+A scenario is a JSON file with a name corresponding with the link in `stories.json`, and places in a sub-folder named `stories`. Each scenario contains a single object file defining everything in that scenario. A scenario object must have the following keys:
 
 - `startGoal` (string) - The name of the start goal to use for the scenario. You can leave it blank to not start a goal, or if the goals array is empty.
 - `initialMaterials` (object of strings) - A list of the materials to start with in the scenario and how much to start with. These keys correspond to the ids of the materials. If unspecified, they default to 0. The built in ones are as follows:
@@ -74,7 +74,7 @@ A custom scenario is a JSON file with a name corresponding with the link in `sto
 
 	</details>
 
-- `goals` (array of goal objects) - EACH GOAL NEEDS DOCUMENTATION. WILL DO LATER.
+- `goals` (array of goal objects) - Goals are extremely complex, and this page is getting really long. Please visit the [story goals](StoryGoals.html) page for more information.
 
 Additionally, the following keys for scenarios are optional, but need more documentation on what they do:
 
