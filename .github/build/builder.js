@@ -77,7 +77,7 @@ function write(struct, links, to="./.out/") {
 		label: "Home",
 		href: "/",
 	}]
-	function recursiveWrite(struct, to="./.out/") {
+	function recursiveWrite(struct, to="./.out/", real="./.out/") {
 		for (const [k, v] of Object.entries(struct)) {
 			let kn = k.replace(/\s+/gm, "")
 			if (typeof v == "object" && !(v instanceof Buffer)) {
@@ -86,7 +86,7 @@ function write(struct, links, to="./.out/") {
 					label: k.replace(/\.html$/,""),
 					href: to.replace(/^\.\/.out/,"")+kn+"/",
 				})
-				recursiveWrite(v, to+kn+"/")
+				recursiveWrite(v, to+kn+"/", real+k+"/")
 				stack.pop()
 			} else {
 				let content = v
@@ -98,11 +98,11 @@ function write(struct, links, to="./.out/") {
 					content = `<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>The Final Earth 2 - Unofficial Modding Guide</title>
+		<title>Modding The Final Earth 2 - Unofficial Documentation</title>
 		<meta charset="utf-8">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400" rel="stylesheet" type="text/css">
-		<meta name="description" content="Unofficial modding guide for The Final Earth 2.">
+		<meta name="description" content="Documentation put together by the community to make modding the game a little bit easier.">
 		<meta name="author" content="DT makes games">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="/style.css" rel="stylesheet" type="text/css">
