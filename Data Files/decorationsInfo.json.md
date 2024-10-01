@@ -1,4 +1,4 @@
-# `decorationsInfo.json`
+# decorationsInfo.json
 
 The `decorationsInfo.json` file contains a list of decorations, such as grass and small rocks, to be added to the build menu. The structure of this file contains an array of objects in JSON format. These objects must have the following keys:
 

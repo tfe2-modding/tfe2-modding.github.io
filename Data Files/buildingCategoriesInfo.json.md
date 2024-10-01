@@ -1,4 +1,4 @@
-# `buildingCategoriesInfo.json`
+# buildingCategoriesInfo.json
 
 The `buildingCategoriesInfo.json` file contains a list of building categories to be added to the game. The structure of this file contains an array of objects in JSON format. These objects must have the following keys:
 

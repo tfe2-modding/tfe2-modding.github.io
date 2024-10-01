@@ -1,4 +1,4 @@
-# `buildinginfo.json`
+# buildinginfo.json
 
 The `buildinginfo.json` file controls what buildings are registered in the game. The structure of this file contains an array of building objects in JSON format. Building objects must have the following keys:
 

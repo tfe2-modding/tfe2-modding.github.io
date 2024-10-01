@@ -1,4 +1,4 @@
-# `buildingCategoriesInfo.json`
+# buildingCategoriesInfo.json
 
 The `buildingUpgradesInfo.json` file contains a list of building upgrades to be added to the game. The structure of this file contains an array of objects in JSON format. These objects must have the following keys:
 

@@ -1,4 +1,4 @@
-# `stories.json`
+# stories.json
 
 The `stories.json` file contains a list of custom scenarios to be added to the game. It does not contain the definition for any of the scenarios, this just registers them on the list in-game. The structure of this file contains an array of objects in JSON format. These objects must have the following keys:
 
