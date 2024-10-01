@@ -95,7 +95,7 @@ function write(struct, links, to="./.out/") {
 						return '<a href="'+e.href+'">'+e.label+"</a>"
 					}).join(" / ")
 					let sidebar = makeSidebar(links)
-					let title = (content.match(/<h1>([^<]+)<\/h1>/m) || ["Modding The Final Earth 2 - Unofficial Documentation"])[0]
+					let title = (content.match(/<h1>(?<title>[^<]+)<\/h1>/m) || {groups:{title:"Modding The Final Earth 2 - Unofficial Documentation"}}).groups.title
 					content = `<!DOCTYPE html>
 <html lang="en">
 	<head>
