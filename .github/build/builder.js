@@ -95,15 +95,16 @@ function write(struct, links, to="./.out/") {
 						return '<a href="'+e.href+'">'+e.label+"</a>"
 					}).join(" / ")
 					let sidebar = makeSidebar(links)
+					let title = (content.match(/<h1>([^<]+)<\/h1>/m) || ["Modding The Final Earth 2 - Unofficial Documentation"])[0]
 					content = `<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Modding The Final Earth 2 - Unofficial Documentation</title>
+		<title>${title}</title>
 		<meta charset="utf-8">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400" rel="stylesheet" type="text/css">
 		<meta name="description" content="Documentation put together by the community to make modding the game a little bit easier.">
-		<meta name="author" content="DT makes games">
+		<meta name="author" content="DT mods games">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="/style.css" rel="stylesheet" type="text/css">
 		<link id="highlights" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
