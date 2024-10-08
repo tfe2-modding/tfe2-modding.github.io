@@ -28,7 +28,7 @@ function build(links={
 	})
 	for (let i = 0; i < files.length; i++) {
 		const file = files[i]
-		if (file.name[0] == "." || file.name == "node_modules") {
+		if (file.name[0] == "." || file.name == "node_modules" || file.name == "README.md") {
 			files.splice(i, 1)
 			i--
 			continue
