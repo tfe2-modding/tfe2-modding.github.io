@@ -51,7 +51,7 @@ function build(links={
 			})
 			if (isMD) {
 				links[file.name] = fn
-				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8").replace("{{@.contrib}}", contrib))
+				struct[fn] = marked.parse(fs.readFileSync(from+file.name, "utf8").replace("{{@.contrib}}", contrib)).replaceAll("!<img", '<img class="dl"')
 			} else {
 				struct[fn] = fs.readFileSync(from+file.name)
 			}

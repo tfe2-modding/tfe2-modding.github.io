@@ -4,6 +4,7 @@
 	--background: #d0d0d0;
 	--page: white;
 	--color: #060606;
+	--code: brown;
 }
 
 :root:has(.darkmode) {
@@ -13,6 +14,7 @@
 	--page: #2f2f2f;
 	--color: #f7f7f7;
 	color-scheme: dark;
+	--code: lightcoral;
 }
 
 body {
@@ -133,6 +135,8 @@ input[type=text], button, select {
 
 code {
 	tab-size: 4;
+	color: var(--code);
+	user-select: contain;
 }
 
 pre {
@@ -166,4 +170,37 @@ pre .copy:hover:not(:active) {
 red {
 	font-weight: bold;
 	color: red;
+}
+
+img {
+	max-width: 100%;
+}
+
+img.dl {
+	cursor: pointer;
+	user-select: none;
+	image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+	width: 100%;
+	max-width: 400px;
+	position: relative;
+}
+
+p:has(img.dl) {
+	position: relative;
+	display: inline;
+}
+
+p:has(img.dl:hover)::after {
+	display: block;
+	content: "Download";
+	color: white;
+	background: #00000077;
+	position: absolute;
+	user-select: none;
+	pointer-events: none;
+	text-align: center;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
 }

@@ -37,3 +37,14 @@ for (const codeBlock of document.getElementsByTagName("pre")) {
 		)
 	}
 }
+
+function download() {
+	var link = document.createElement('a')
+	link.download = this.alt
+	link.href = this.src
+	link.click()
+}
+
+for (const img of document.getElementsByClassName("dl")) {
+	img.onclick = download
+}
