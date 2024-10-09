@@ -9,6 +9,7 @@
 	- `policiesInfo.json`
 	- ~~`stories.json`~~
 	- `Custom Scenario JSON`
+	- `skyColors` property in scenarios (next update)
 - Document some undocumented behavior on certain ModTools functions.
 	- `makeBuilding` (document custom fields)
 	- `makeBuildingUpgrade` (document custom fields)
@@ -33,7 +34,7 @@
 	- `addSaveData`
 	- `addSaveDataEarly`
 - Make a few tutorials that can walk someone through the process of making a mod. Ideas include:
-	- Setting up the mod folder
+	- ~~Setting up the mod folder~~
 	- Custom decorations
 	- Custom resources
 	- Custom buildings
