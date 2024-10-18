@@ -106,6 +106,7 @@ function write(struct, links, to="./.out/") {
 		<meta name="description" content="Documentation put together by the community to make modding the game a little bit easier.">
 		<meta name="author" content="DT mods games">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="google-site-verification" content="DCXravjmygnLHkb2yl70X3iYcT-OJhn99y9ldhGbyKo" />
 		<link href="/style.css" rel="stylesheet" type="text/css">
 		<link id="highlights" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
