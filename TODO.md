@@ -12,6 +12,7 @@
 	- `skyColors` property in scenarios
 	- `lang_xx.csv` localization documentation
 	- `languageInfo.json`
+	- `modInfo.json`
 - Document some undocumented behavior on certain ModTools functions.
 	- `makeBuilding` (document custom fields)
 	- `makeBuildingUpgrade` (document custom fields)
