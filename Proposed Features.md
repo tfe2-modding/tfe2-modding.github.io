@@ -6,13 +6,27 @@ This page is split into 3 sections: Propositions, Accepted, and Rejected. Everyt
 
 ## Propositions
 
-### `lang_XX.csv` loading
-
-This would allow loading language csv files into the game to add new translation keys in order to support multiple languages. The advantage of this being there really is no easy way to do this right now.
-
-### `buildinginfo.json` and `buildingUpgradesInfo.json` key for spriteName
+### `spritename` key for `buildinginfo.json` and `buildingUpgradesInfo.json`
 
 This would add a new optional key to an entry in `buildinginfo.json` and `buildingUpgradesInfo.json` to specify the spriteName, which would normally be provided in the `ModTools.makeBuilding` or `ModTools.makeBuildingUpgrade`. The advantage of this is consistency with other data files that specify texture or sprite data.
+
+### `maxCount` key in `buildinginfo.json`
+
+This would add a new optional `maxCount` key to `buildinginfo.json` that takes in a number. Whatever `maxCount` is set to is the maximum of that type of building you are allowed to build. The advantage of this being it's a new feature.
+
+### `cost` key in relevant data files.
+
+This would add a new optional `cost` key to the following files:
+
+- `buildinginfo.json`
+- `buildingUpgradesInfo.json`
+- `bridgesInfo.json`
+- `decorationsInfo.json`
+- `buildableWorldResourcesInfo.json`
+- `cityUpgradesInfo.json`
+- `policiesInfo.json`
+
+The `cost` key would contain an object that holds keys corresponding to the material costs of the respective object. If a `cost` key exists, the game should ignore any material keys present in the base structure of the file. If a key exists in the `cost` object that is not a valid material, the game should throw an error or show a notification. The advantages of this are to prevent naming clashes with material names and preexisting keys, provide a slightly cleaner data structure, and prevent misspellings of material names not notifying the programmer of what went wrong.
 
 ### `materialsInfo.json`
 
@@ -38,42 +52,9 @@ Adding material entries with the same varName as built in ones will ignore them 
 
 This would add these new functions: `ModTools.addListener(eventType: string, callback: any->void)`, `ModTools.once(eventType: string, callback: any->void)`, `ModTools.removeListener(callback: any->void)`, `ModTools.hasListener(callback: any->void)` and `ModTools.emit(eventType: string, data: any)`. Any file could register a listener under an eventType, and running `ModTools.emit` would run all functions associated with the same eventType. The advantage of this being allowing mods to communicate with each other, as well as to communicate with themselves in certain scenarios. For example, a global event sending a message to all buildings to update some property within them, or one mod waiting on another mod to send some data over to finish loading.
 
-### `maxCount` key in `buildinginfo.json`
+## Confirmed
 
-This would add a new optional `maxCount` key to `buildinginfo.json` that takes in a number. Whatever `maxCount` is set to is the maximum of that type of building you are allowed to build. The advantage of this being it's a new feature.
-
-### `cost` key in relevant data files.
-
-This would add a new optional `cost` key to the following files:
-
-- `buildinginfo.json`
-- `buildingUpgradesInfo.json`
-- `bridgesInfo.json`
-- `decorationsInfo.json`
-- `buildableWorldResourcesInfo.json`
-- `cityUpgradesInfo.json`
-- `policiesInfo.json`
-
-The `cost` key would contain an object that holds keys corresponding to the material costs of the respective object. If a `cost` key exists, the game should ignore any material keys present in the base structure of the file. If a key exists in the `cost` object that is not a valid material, the game should throw an error or show a notification. The advantages of this are to prevent naming clashes with material names and preexisting keys, provide a slightly cleaner data structure, and prevent misspellings of material names not notifying the programmer of what went wrong.
-
-## Accepted
-
-### `ModTools.onCityCreate(callback: city->void)`
-
-This function would run whenever a city is created, allowing for initialization to happen. The advantage of this is not needing to try and extend the constructor for the City class.
-
-**Accepted**: Feature will be included in the next update.
-
-### `skyColors` property for custom scenarios
-
-This would add a new optional key to a scenario JSON file that held an array of sky colors. Each sky color would have two keys:
-
-- `color` (color) - The color of the sky.
-- `time` (number) - The time to display the color.
-
-This could be used to create custom atmospheres and make each scenario feel unique. Advantages of this being it's a new feature.
-
-**Accepted**: Feature will be included in the next update.
+This contains a list of features that have been confirmed to be added but have not been implemented yet.
 
 ## Rejected
 

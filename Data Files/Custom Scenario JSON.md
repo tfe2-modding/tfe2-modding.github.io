@@ -78,6 +78,9 @@ A scenario is a JSON file with a name corresponding with the link in `stories.js
 
 Additionally, the following keys for scenarios are optional, but need more documentation on what they do:
 
+- `skyColors` (array of sky colors) - A list of objects to tell the sky what colors to use at what times. The game will fade from one color to the next. Each object contains the following keys:
+	- `color` (string) - A color hex code prefixed with `#` (ie `#ADC8FF`)
+	- `time` (number) - The time in in-game hours to display the color.
 - `lockPermanents` (array of strings) - A list of `className`s that correspond with buildings that are forcibly locked when the scenario starts. Defaults to an empty array.
 - `viewStartX` (number) - The X position that the camera view starts at. Defaults to 0.
 - `useInviteCitizens` (boolean) - If set to false, the invite citizens button is missing from the build UI.
