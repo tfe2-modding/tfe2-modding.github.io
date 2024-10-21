@@ -28,5 +28,3 @@ enums like `upgradeDisplayLayer` also need to be documented. this has `Foregroun
 theres a `ruleset` flag for scenarios now??? theres classes for each ruleset and so far ive only been able to find ones for cityofthekey.json and hippiecommune.json but this might be replacing the hardcoding going on with that possibly
 
 its likely very easy to make a buildable world resource, just create a class copied from an existing one and add an info entry, maybe ill make a helper func for this and stick it into liquid just to prove its possible idk
-
-someone remind me to explain this game's ui system when i have more energy, because i have a LOT of info on that
