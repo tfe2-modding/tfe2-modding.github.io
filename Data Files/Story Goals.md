@@ -26,6 +26,8 @@ Additionally, the following keys for a goal are optional:
 	- `disableRewardedAd` (boolean) - Disables viewing ads to gain boosts if enabled, does nothing on the steam version.
 	- `setBuildableAliens` (boolean) - Sets whether or not the "strange force" preventing you from building on certain islands in Hacking Alien Tech is enabled or not.
 	- `unlockAchievementWithStoryPrefix` (string) - Unlocks a steam achievement.
+	- `ruleset` (string) - <red>Undocumented</red>
+	- `disableRocket` (boolean) - Disables building the rocket.
 - `text` (string) - The description to use when showing goal text. If provided, will show a text popup upon this goal being activated. Can have a command at the start of it.
 - `tldr` (string) - The TL;DR to use for a goal. If provided, the text popup for a goal will have a button to toggle the TL;DR, which shows this text in place of `text`.
 - `title` (string) - The title to use when showing goal text. If provided, will show a text popup upon this goal being activated.
