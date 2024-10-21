@@ -9,10 +9,10 @@
 	- `policiesInfo.json`
 	- ~~`stories.json`~~
 	- `Custom Scenario JSON`
-	- `skyColors` property in scenarios
+	- ~~`skyColors` property in scenarios~~
 	- `lang_xx.csv` localization documentation
 	- `languageInfo.json`
-	- `modInfo.json`
+	- ~~`modInfo.json`~~
 - Document some undocumented behavior on certain ModTools functions.
 	- `makeBuilding` (document custom fields)
 	- `makeBuildingUpgrade` (document custom fields)

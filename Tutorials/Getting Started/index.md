@@ -51,10 +51,9 @@ Feel free to make changes to your mod to try out new things. You can press Ctrl+
 
 ## Extra Information That Doesn't Really Go Anywhere Else
 
-- Mod load order is undefined, and currently there is no way to control how mods are loaded, which means if your mod depends on something another mod does, you will need to wait for that mod to finish loading.
 - Putting any files in a folder titled `dontAutoLoad` will not load them into the game, and require you to load them manually.
-- The game will run all `.js` files it can find in your mod folder automatically. The order these run is also undefined.
+- The game will run all `.js` files it can find in your mod folder automatically. By default, the game loads these files in alphabetical order, starting in the base directory and then loading the sub-directories.
 
 ## Final Remarks
 
-This tutorial exists to get the mod folder set up and ready for modding, as well as to provide a few examples of what you can do. However, from here on out, you absolutely 100% will need to know how to code, and it is highly recommended that you already know how to code in JavaScript. Otherwise, it's going to be really hard to create a mod. If you want to learn the language the official [MDN docs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps) are a great place to start.
+This tutorial exists to get the mod folder set up and ready for modding, as well as to provide a few examples of what you can do. However, from here on out, you **absolutely 100% will need to know how to code**, and it is highly recommended that you already know how to code in JavaScript. Otherwise, it's going to be really hard to create a mod. If you want to learn the language the official [MDN docs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps) are a great place to start.
