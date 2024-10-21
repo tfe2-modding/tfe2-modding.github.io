@@ -1,4 +1,4 @@
-# Informal Nodes
+# Informal Notes
 
 This is a place to dump information about how the game works as you discover it. It does not need to be categorized in any way, and information will be removed from this page as it gets put into a proper documentation page elsewhere.
 
