@@ -5,7 +5,17 @@ This is a place to dump information about how the game works as you discover it.
 [Edit this page on the github repo](https://github.com/tfe2-modding/tfe2-modding.github.io/edit/main/Informal%20Notes.md)
 
 ## Notes
+
+
+
+
+
 <!-- PLEASE DO NOT PUT ANY NOTES ABOVE THIS COMMENT -->
+
+
+
+
+
 
 to splice up a 4-way merging sprite, the game cuts the sprite into 10x10 chunks on each corner. for example the botanical garden sprite. horizontally merging sprites split the sprite into halves sized 10x20, like the parks and restaurants. vertically i would assume does halves sized 20x10, but `buildingEnableMerging` needs testing
 
