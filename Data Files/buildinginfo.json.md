@@ -50,6 +50,10 @@ Lastly, a building object can have keys in it to specify how much it costs. Thes
 - `machineParts`
 - `refinedMetal`
 - `computerChips`
+- `graphene`
+- `rocketFuel`
+- `cacao` (unused)
+- `chocolate` (unused)
 
 `buildinginfo.json` can contain any number of buildings in it. Specifying a `className` that already exists will overwrite the properties of that building.
 

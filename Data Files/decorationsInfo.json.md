@@ -22,6 +22,10 @@ Lastly, a decoration object can have keys in it to specify how much it costs. Th
 - `machineParts`
 - `refinedMetal`
 - `computerChips`
+- `graphene`
+- `rocketFuel`
+- `cacao` (unused)
+- `chocolate` (unused)
 
 `decorationsInfo.json` can contain any number of decorations in it. Specifying a `textureName` that already exists will NOT overwrite the properties of that decoration, instead it will add a duplicate.
 

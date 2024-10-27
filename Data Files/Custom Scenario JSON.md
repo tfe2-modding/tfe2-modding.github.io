@@ -13,6 +13,10 @@ A scenario is a JSON file with a name corresponding with the link in `stories.js
 	- `machineParts`
 	- `refinedMetal`
 	- `computerChips`
+	- `graphene`
+	- `rocketFuel`
+	- `cacao` (unused)
+	- `chocolate` (unused)
 - `viewYFromBottom` (number) - The Y position that the bottom of the camera view starts at.
 - `worlds` (array of world objects) - A list of floating islands for the scenario to create.
 
