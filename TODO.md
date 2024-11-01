@@ -1,3 +1,7 @@
+# TODO
+
+## Most Important
+
 - Get a good chunk of raw documentation on all the data-driven files into the website.
 	- `bridgesInfo.json`
 	- `buildableWorldResourcesInfo.json`
@@ -54,6 +58,9 @@
 	- Custom scenario
 	- Custom scenario goals
 	- Custom randomly generated scenario
+
+## Least Important
+
 - Lastly after all that is done, if I'm still interested in this project, make a few tools
 	- Generators for JSON files (such as buildinginfo.json, custom scenarios, etc)
 	- ~~Sprite viewer~~ and packer for PIXI spritesheets
