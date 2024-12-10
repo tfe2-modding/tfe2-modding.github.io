@@ -5,6 +5,7 @@ This is an unofficial modding guide put together to provide more documentation o
 The goal is to eventually have tutorials and documentation alike, however right now all this page has is some very rough documentation.
 
 - If you are looking for a specific data file, ckeck the [Data Files](DataFiles/).
+- Having an issue or another question? Check the [FAQ](FAQ.html).
 - Need a specific sprite from the game? You can extract it via the sprite browser in the [Tools](Tools/).
 - Learning to mod? Check out the [Tutorials](Tutorials/) and the [official modding guide](https://florianvanstrien.nl/TheFinalEarth2/modding.php).
 - There is also a page full of [Proposed Features](ProposedFeatures.html).

@@ -18,7 +18,7 @@ A scenario is a JSON file with a name corresponding with the link in `stories.js
 	- `cacao` (unused)
 	- `chocolate` (unused)
 - `viewYFromBottom` (number) - The Y position that the bottom of the camera view starts at.
-- `worlds` (array of world objects) - A list of floating islands for the scenario to create.
+- `worlds` (array of world objects) - A list of floating islands for the scenario to create. This must contain at least 1 world or the game will crash.
 
 	<details>
 	<summary>Expand for more info.</summary>
@@ -59,15 +59,10 @@ A scenario is a JSON file with a name corresponding with the link in `stories.js
 
 		Citizens spawn directly on the ground. The game will choose a random age between `ageRangeMin` and `ageRangeMax` for each citizen, and spawns them randomly between `minX` and `maxX` on the x position.
 
-	- `decoration` (string) - The sprite name for the decoration to place on every remaining empty spot on the island.
-	- `appearance` (string) - Changes the color and style of the island. Existing valid values are:
-		- `key`
-		- `key2`
-		- `snow`
-		- `rock`
-		- `rock:lessJagged`
 
 	Additionally, the following keys for worlds are optional:
+
+	- `decoration` (string) - The sprite name for the decoration to place on every remaining empty spot on the island. Defaults to grass.
 
 	- `decorations` (array of objects) - A list of decorations to place at specific positions in the world.
 	
@@ -75,6 +70,13 @@ A scenario is a JSON file with a name corresponding with the link in `stories.js
 		- `spriteName` (string) - The decoration sprite to place at that position.
 	
 	- `protectedKey` (boolean) - If set to true, you will not be able to destroy buildings related to the Secret Society of the Key.
+
+	- `appearance` (string) - Changes the color and style of the island. Existing valid values are:
+		- `key`
+		- `key2`
+		- `snow`
+		- `rock`
+		- `rock:lessJagged`
 
 	</details>
 
