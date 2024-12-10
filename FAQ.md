@@ -10,11 +10,15 @@
 
 ## Where is the code for the mod I installed via the Steam Workshop?
 
-> `C:\Program Files (x86)\Steam\steamapps\workshop\content\1180130\`
+> All Steam Workshop mods are stored in `C:\Program Files (x86)\Steam\steamapps\workshop\content\1180130\` by their workshop ID.
 
-## Is it possible to mod the mobile version of the game.
+## Is it possible to mod the mobile version of the game?
 
 > No.
+
+## Can the web versio-
+
+> Only the Steam version of the game can be modded.
 
 ## How do I open the developer console?
 
